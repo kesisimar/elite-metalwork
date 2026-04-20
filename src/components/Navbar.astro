@@ -3,7 +3,7 @@ const { active } = Astro.props;
 ---
 <nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md">
   <div class="flex justify-between items-center px-8 h-20 w-full max-w-7xl mx-auto">
-    <div class="text-2xl font-bold tracking-tight text-emerald-900 font-headline">Organic Nutrition</div>
+    <a href="/" class="text-2xl font-bold tracking-tight text-emerald-900 font-headline hover:opacity-80 transition-opacity">Organic Nutrition</a>
     <div class="hidden md:flex items-center space-x-8">
       <a class={active === 'index' ? "text-emerald-700 border-b-2 border-emerald-700 pb-1 font-medium text-sm" : "text-slate-600 hover:text-emerald-600 transition-colors font-medium text-sm"} href="/">Αρχική</a>
       <a class={active === 'services' ? "text-emerald-700 border-b-2 border-emerald-700 pb-1 font-medium text-sm" : "text-slate-600 hover:text-emerald-600 transition-colors font-medium text-sm"} href="/services">Υπηρεσίες</a>
