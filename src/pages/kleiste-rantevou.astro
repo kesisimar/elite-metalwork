@@ -79,27 +79,27 @@ import Layout from '../layouts/Layout.astro';
 <div class="lg:col-span-5 flex flex-col gap-8">
 <div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
 <h2 class="text-2xl font-bold text-on-surface mb-6">Στοιχεία Επικοινωνίας</h2>
-<form class="space-y-6">
+<form method="POST" action="#" class="space-y-6">
 <div class="space-y-2">
 <label class="text-sm font-semibold text-on-surface-variant flex items-center gap-2">
 <span class="material-symbols-outlined text-base">person</span>
                                 Όνομα
                             </label>
-<input class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary focus:bg-surface-container-highest transition-all text-on-surface" placeholder="Εισάγετε το ονοματεπώνυμό σας" type="text"/>
+<input name="name" required class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary focus:bg-surface-container-highest transition-all text-on-surface" placeholder="Εισάγετε το ονοματεπώνυμό σας" type="text"/>
 </div>
 <div class="space-y-2">
 <label class="text-sm font-semibold text-on-surface-variant flex items-center gap-2">
 <span class="material-symbols-outlined text-base">phone</span>
                                 Τηλέφωνο
                             </label>
-<input class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary focus:bg-surface-container-highest transition-all text-on-surface" placeholder="+30 690 0000000" type="tel"/>
+<input name="phone" required class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary focus:bg-surface-container-highest transition-all text-on-surface" placeholder="+30 690 0000000" type="tel"/>
 </div>
 <div class="space-y-2">
 <label class="text-sm font-semibold text-on-surface-variant flex items-center gap-2">
 <span class="material-symbols-outlined text-base">medical_services</span>
                                 Σκοπός Επίσκεψης
                             </label>
-<select class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary focus:bg-surface-container-highest transition-all text-on-surface appearance-none">
+<select name="purpose" class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary focus:bg-surface-container-highest transition-all text-on-surface appearance-none">
 <option>Απώλεια Βάρους</option>
 <option>Αθλητική Διατροφή</option>
 <option>Κλινική Διατροφή (Παθήσεις)</option>
