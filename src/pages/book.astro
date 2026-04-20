@@ -1,0 +1,188 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Κλείσε Ραντεβού">
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md">
+<div class="flex justify-between items-center px-8 h-20 w-full max-w-7xl mx-auto">
+<div class="text-2xl font-bold tracking-tight text-emerald-900 font-headline">Organic Nutrition</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-slate-600 hover:text-emerald-600 transition-colors font-medium" href="#">Αρχική</a>
+<a class="text-slate-600 hover:text-emerald-600 transition-colors font-medium" href="#">Υπηρεσίες</a>
+<a class="text-emerald-700 border-b-2 border-emerald-700 pb-1 font-medium" href="#">Κλείσε Ραντεβού</a>
+<a class="text-slate-600 hover:text-emerald-600 transition-colors font-medium" href="#">Άρθρα</a>
+<a class="text-slate-600 hover:text-emerald-600 transition-colors font-medium" href="#">Επικοινωνία</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-xl font-semibold scale-95 duration-150 active:opacity-80 transition-all hover:bg-opacity-90 shadow-sm">
+                Κλείσε Ραντεβού
+            </button>
+</div>
+</nav>
+<main class="pt-32 pb-20 px-4 md:px-8 max-w-7xl mx-auto">
+<!-- Header Section -->
+<div class="mb-12 text-center md:text-left">
+<h1 class="text-4xl md:text-5xl font-bold text-primary mb-4 tracking-tight">Προγραμματισμός Συνεδρίας</h1>
+<p class="text-lg text-on-surface-variant max-w-2xl leading-relaxed">
+                Επιλέξτε την ημερομηνία και την ώρα που σας εξυπηρετεί για μια εξατομικευμένη διατροφική συμβουλευτική.
+            </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Column: Calendar Interface -->
+<div class="lg:col-span-7 bg-surface-container-low rounded-xl p-6 md:p-8">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-xl font-semibold text-on-surface">Οκτώβριος 2024</h2>
+<div class="flex gap-2">
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Calendar Grid -->
+<div class="grid grid-cols-7 gap-2 mb-8">
+<!-- Days Header -->
+<div class="text-center py-2 text-xs font-bold text-outline uppercase tracking-wider">Δευ</div>
+<div class="text-center py-2 text-xs font-bold text-outline uppercase tracking-wider">Τρι</div>
+<div class="text-center py-2 text-xs font-bold text-outline uppercase tracking-wider">Τετ</div>
+<div class="text-center py-2 text-xs font-bold text-outline uppercase tracking-wider">Πεμ</div>
+<div class="text-center py-2 text-xs font-bold text-outline uppercase tracking-wider">Παρ</div>
+<div class="text-center py-2 text-xs font-bold text-secondary uppercase tracking-wider">Σαβ</div>
+<div class="text-center py-2 text-xs font-bold text-secondary uppercase tracking-wider">Κυρ</div>
+<!-- Calendar Days (Mockup) -->
+<div class="aspect-square flex items-center justify-center text-outline-variant opacity-40">26</div>
+<div class="aspect-square flex items-center justify-center text-outline-variant opacity-40">27</div>
+<div class="aspect-square flex items-center justify-center text-outline-variant opacity-40">28</div>
+<div class="aspect-square flex items-center justify-center text-outline-variant opacity-40">29</div>
+<div class="aspect-square flex items-center justify-center text-outline-variant opacity-40">30</div>
+<div class="aspect-square flex items-center justify-center text-on-surface">1</div>
+<div class="aspect-square flex items-center justify-center text-on-surface">2</div>
+<button class="aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary hover:text-white transition-all shadow-sm">3</button>
+<button class="aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary hover:text-white transition-all shadow-sm">4</button>
+<button class="aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary hover:text-white transition-all shadow-sm">5</button>
+<button class="aspect-square flex items-center justify-center bg-primary text-on-primary rounded-lg shadow-md font-bold">6</button>
+<button class="aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary hover:text-white transition-all shadow-sm">7</button>
+<div class="aspect-square flex items-center justify-center text-on-surface font-medium">8</div>
+<div class="aspect-square flex items-center justify-center text-on-surface font-medium">9</div>
+<button class="aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary hover:text-white transition-all shadow-sm">10</button>
+<button class="aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary hover:text-white transition-all shadow-sm">11</button>
+<button class="aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary hover:text-white transition-all shadow-sm">12</button>
+<button class="aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary hover:text-white transition-all shadow-sm">13</button>
+<button class="aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary hover:text-white transition-all shadow-sm">14</button>
+<div class="aspect-square flex items-center justify-center text-on-surface font-medium">15</div>
+<div class="aspect-square flex items-center justify-center text-on-surface font-medium">16</div>
+</div>
+<!-- Time Slots -->
+<div class="mt-8 border-t border-outline-variant/20 pt-8">
+<h3 class="text-sm font-semibold text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-base">schedule</span>
+                        Διαθέσιμες Ώρες (6 Οκτωβρίου)
+                    </h3>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+<button class="py-3 px-4 bg-surface-container-lowest border border-outline-variant/30 rounded-lg text-sm font-medium hover:border-primary hover:text-primary transition-all">09:00</button>
+<button class="py-3 px-4 bg-primary text-on-primary rounded-lg text-sm font-bold shadow-sm">10:30</button>
+<button class="py-3 px-4 bg-surface-container-lowest border border-outline-variant/30 rounded-lg text-sm font-medium hover:border-primary hover:text-primary transition-all">12:00</button>
+<button class="py-3 px-4 bg-surface-container-lowest border border-outline-variant/30 rounded-lg text-sm font-medium hover:border-primary hover:text-primary transition-all">14:00</button>
+<button class="py-3 px-4 bg-surface-container-lowest border border-outline-variant/30 rounded-lg text-sm font-medium hover:border-primary hover:text-primary transition-all">16:30</button>
+<button class="py-3 px-4 bg-surface-container-lowest border border-outline-variant/30 rounded-lg text-sm font-medium hover:border-primary hover:text-primary transition-all">18:00</button>
+</div>
+</div>
+</div>
+<!-- Right Column: Form -->
+<div class="lg:col-span-5 flex flex-col gap-8">
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+<h2 class="text-2xl font-bold text-on-surface mb-6">Στοιχεία Επικοινωνίας</h2>
+<form class="space-y-6">
+<div class="space-y-2">
+<label class="text-sm font-semibold text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-base">person</span>
+                                Όνομα
+                            </label>
+<input class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary focus:bg-surface-container-highest transition-all text-on-surface" placeholder="Εισάγετε το ονοματεπώνυμό σας" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-semibold text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-base">phone</span>
+                                Τηλέφωνο
+                            </label>
+<input class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary focus:bg-surface-container-highest transition-all text-on-surface" placeholder="+30 690 0000000" type="tel"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-semibold text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-base">medical_services</span>
+                                Σκοπός Επίσκεψης
+                            </label>
+<select class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary focus:bg-surface-container-highest transition-all text-on-surface appearance-none">
+<option>Απώλεια Βάρους</option>
+<option>Αθλητική Διατροφή</option>
+<option>Κλινική Διατροφή (Παθήσεις)</option>
+<option>Διατροφική Εκπαίδευση</option>
+<option>Άλλο</option>
+</select>
+</div>
+<div class="pt-4">
+<button class="w-full bg-primary text-on-primary py-4 rounded-xl font-bold text-lg hover:shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2" type="submit">
+<span class="material-symbols-outlined">event_available</span>
+                                Επιβεβαίωση Ραντεβού
+                            </button>
+<p class="text-xs text-center text-outline mt-4 leading-relaxed">
+                                Με την επιβεβαίωση, αποδέχεστε την Πολιτική Απορρήτου και τους Όρους Χρήσης της Organic Nutrition.
+                            </p>
+</div>
+</form>
+</div>
+<!-- Info Card -->
+<div class="bg-secondary-container text-on-secondary-container rounded-xl p-6 flex gap-4 items-start">
+<span class="material-symbols-outlined text-3xl">info</span>
+<div>
+<h4 class="font-bold mb-1">Πληροφορίες Ραντεβού</h4>
+<p class="text-sm opacity-90">Οι συνεδρίες πραγματοποιούνται είτε δια ζώσης στο γραφείο μας είτε μέσω βιντεοκλήσης. Θα λάβετε email επιβεβαίωσης εντός 24 ωρών.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-emerald-900 text-emerald-50 w-full pt-16 pb-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-8 w-full max-w-7xl mx-auto">
+<div class="space-y-6">
+<div class="text-xl font-bold text-emerald-50 font-headline">Organic Nutrition</div>
+<p class="text-emerald-100/70 text-sm leading-relaxed max-w-xs">
+                    Προσεγγίζουμε την υγεία σας με ολιστικό και επιστημονικό τρόπο, δημιουργώντας το ιδανικό περιβάλλον για την ευεξία σας.
+                </p>
+</div>
+<div class="space-y-6">
+<h4 class="font-semibold text-lg">Σύνδεσμοι</h4>
+<ul class="space-y-3">
+<li><a class="text-emerald-100/70 hover:text-white transition-colors" href="#">Πολιτική Απορρήτου</a></li>
+<li><a class="text-emerald-100/70 hover:text-white transition-colors" href="#">Όροι Χρήσης</a></li>
+<li><a class="text-emerald-100/70 hover:text-white transition-colors" href="#">Συχνές Ερωτήσεις</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-semibold text-lg">Επικοινωνία</h4>
+<div class="space-y-3 text-emerald-100/70 text-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-emerald-200">location_on</span>
+<span>Λεωφ. Κηφισίας 124, Αθήνα</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-emerald-200">call</span>
+<span>+30 210 1234567</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-emerald-200">mail</span>
+<span>info@organicnutrition.gr</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-16 pt-8 border-t border-emerald-800/50 text-center text-emerald-100/50 text-xs px-8">
+            © 2024 The Organic Atelier. Με επιφύλαξη παντός δικαιώματος.
+        </div>
+</footer>
+
+</Layout>
