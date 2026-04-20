@@ -2,24 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Κλείσε Ραντεβού">
+<Layout title="Κλείσε Ραντεβού" active="book">
 
-<!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md">
-<div class="flex justify-between items-center px-8 h-20 w-full max-w-7xl mx-auto">
-<div class="text-2xl font-bold tracking-tight text-emerald-900 font-headline">Organic Nutrition</div>
-<div class="hidden md:flex items-center space-x-8">
-<a class="text-slate-600 hover:text-emerald-600 transition-colors font-medium" href="#">Αρχική</a>
-<a class="text-slate-600 hover:text-emerald-600 transition-colors font-medium" href="#">Υπηρεσίες</a>
-<a class="text-emerald-700 border-b-2 border-emerald-700 pb-1 font-medium" href="#">Κλείσε Ραντεβού</a>
-<a class="text-slate-600 hover:text-emerald-600 transition-colors font-medium" href="#">Άρθρα</a>
-<a class="text-slate-600 hover:text-emerald-600 transition-colors font-medium" href="#">Επικοινωνία</a>
-</div>
-<button class="bg-primary text-on-primary px-6 py-2.5 rounded-xl font-semibold scale-95 duration-150 active:opacity-80 transition-all hover:bg-opacity-90 shadow-sm">
-                Κλείσε Ραντεβού
-            </button>
-</div>
-</nav>
 <main class="pt-32 pb-20 px-4 md:px-8 max-w-7xl mx-auto">
 <!-- Header Section -->
 <div class="mb-12 text-center md:text-left">
@@ -145,44 +129,4 @@ import Layout from '../layouts/Layout.astro';
 </div>
 </div>
 </main>
-<!-- Footer -->
-<footer class="bg-emerald-900 text-emerald-50 w-full pt-16 pb-8">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-8 w-full max-w-7xl mx-auto">
-<div class="space-y-6">
-<div class="text-xl font-bold text-emerald-50 font-headline">Organic Nutrition</div>
-<p class="text-emerald-100/70 text-sm leading-relaxed max-w-xs">
-                    Προσεγγίζουμε την υγεία σας με ολιστικό και επιστημονικό τρόπο, δημιουργώντας το ιδανικό περιβάλλον για την ευεξία σας.
-                </p>
-</div>
-<div class="space-y-6">
-<h4 class="font-semibold text-lg">Σύνδεσμοι</h4>
-<ul class="space-y-3">
-<li><a class="text-emerald-100/70 hover:text-white transition-colors" href="#">Πολιτική Απορρήτου</a></li>
-<li><a class="text-emerald-100/70 hover:text-white transition-colors" href="#">Όροι Χρήσης</a></li>
-<li><a class="text-emerald-100/70 hover:text-white transition-colors" href="#">Συχνές Ερωτήσεις</a></li>
-</ul>
-</div>
-<div class="space-y-6">
-<h4 class="font-semibold text-lg">Επικοινωνία</h4>
-<div class="space-y-3 text-emerald-100/70 text-sm">
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-emerald-200">location_on</span>
-<span>Λεωφ. Κηφισίας 124, Αθήνα</span>
-</div>
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-emerald-200">call</span>
-<span>+30 210 1234567</span>
-</div>
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-emerald-200">mail</span>
-<span>info@organicnutrition.gr</span>
-</div>
-</div>
-</div>
-</div>
-<div class="mt-16 pt-8 border-t border-emerald-800/50 text-center text-emerald-100/50 text-xs px-8">
-            © 2024 The Organic Atelier. Με επιφύλαξη παντός δικαιώματος.
-        </div>
-</footer>
-
 </Layout>

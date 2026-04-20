@@ -2,26 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Άρθρα - Updated Layout">
+<Layout title="Άρθρα - Updated Layout" active="articles">
 
-<!-- TopNavBar Implementation -->
-<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md">
-<div class="flex justify-between items-center px-8 h-20 w-full max-w-7xl mx-auto">
-<div class="text-2xl font-bold tracking-tight text-emerald-900 brand-font">
-            Organic Nutrition
-        </div>
-<div class="hidden md:flex items-center space-x-8">
-<a class="text-slate-600 hover:text-emerald-600 transition-colors font-medium" href="#">Αρχική</a>
-<a class="text-slate-600 hover:text-emerald-600 transition-colors font-medium" href="#">Υπηρεσίες</a>
-<a class="text-slate-600 hover:text-emerald-600 transition-colors font-medium" href="#">Κλείσε Ραντεβού</a>
-<a class="text-emerald-700 border-b-2 border-emerald-700 pb-1 font-medium" href="#">Άρθρα</a>
-<a class="text-slate-600 hover:text-emerald-600 transition-colors font-medium" href="#">Επικοινωνία</a>
-</div>
-<button class="bg-primary text-on-primary px-6 py-2.5 rounded-xl font-semibold scale-95 duration-150 active:opacity-80 hover:bg-emerald-800 transition-all">
-            Κλείσε Ραντεβού
-        </button>
-</div>
-</nav>
 <main class="pt-32 pb-24 px-8 max-w-7xl mx-auto">
 <!-- Hero Editorial Section -->
 <header class="mb-20 text-center md:text-left max-w-3xl">
@@ -184,45 +166,4 @@ import Layout from '../layouts/Layout.astro';
 </button>
 </div>
 </main>
-<!-- Footer Implementation -->
-<footer class="bg-emerald-900 dark:bg-black w-full pt-16 pb-8">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-8 w-full max-w-7xl mx-auto">
-<div class="space-y-6">
-<div class="text-xl font-bold text-emerald-50 brand-font">Organic Nutrition</div>
-<p class="text-emerald-100/70 text-sm leading-relaxed max-w-xs">
-                Επαγγελματική καθοδήγηση διατροφής με επίκεντρο την ολιστική ευεξία και την ποιότητα των πρώτων υλών.
-            </p>
-</div>
-<div class="flex flex-col gap-4">
-<h4 class="font-semibold brand-font text-emerald-50 mb-2">Σύνδεσμοι</h4>
-<a class="text-emerald-100/70 hover:text-white transition-colors text-sm" href="#">Πολιτική Απορρήτου</a>
-<a class="text-emerald-100/70 hover:text-white transition-colors text-sm" href="#">Όροι Χρήσης</a>
-<a class="text-emerald-100/70 hover:text-white transition-colors text-sm" href="#">Συχνές Ερωτήσεις</a>
-</div>
-<div class="flex flex-col gap-4">
-<h4 class="font-semibold brand-font text-emerald-50 mb-2">Social Media</h4>
-<div class="flex gap-6">
-<a class="text-emerald-100/70 hover:text-white transition-colors" href="#">
-<span class="material-symbols-outlined">alternate_email</span>
-</a>
-<a class="text-emerald-100/70 hover:text-white transition-colors" href="#">
-<span class="material-symbols-outlined">public</span>
-</a>
-<a class="text-emerald-100/70 hover:text-white transition-colors" href="#">
-<span class="material-symbols-outlined">share</span>
-</a>
-</div>
-<p class="text-emerald-100/70 text-sm mt-4">
-                Email: info@organicnutrition.gr<br/>
-                Τηλ: +30 210 000 0000
-            </p>
-</div>
-</div>
-<div class="max-w-7xl mx-auto px-8 mt-16 pt-8 border-t border-emerald-800/30">
-<p class="text-emerald-100/70 text-xs text-center">
-            © 2024 The Organic Atelier. Με επιφύλαξη παντός δικαιώματος.
-        </p>
-</div>
-</footer>
-
 </Layout>

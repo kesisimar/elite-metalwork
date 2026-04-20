@@ -1,6 +1,8 @@
 ---
 import '../styles/global.css';
-const { title } = Astro.props;
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+const { title, active } = Astro.props;
 ---
 <!doctype html>
 <html lang="el">
@@ -19,6 +21,8 @@ const { title } = Astro.props;
     </style>
   </head>
   <body class="bg-surface text-on-surface antialiased">
+    <Navbar active={active} />
     <slot />
+    <Footer />
   </body>
 </html>

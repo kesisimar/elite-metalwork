@@ -2,26 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Όροι Χρήσης - Simplified">
+<Layout title="Όροι Χρήσης - Simplified" active="terms">
 
-<!-- TopAppBar -->
-<header class="bg-[#fdfae7]/80 dark:bg-slate-900/80 backdrop-blur-md fixed top-0 w-full z-50">
-<nav class="flex justify-between items-center h-20 px-8 max-w-7xl mx-auto">
-<div class="font-headline font-bold text-2xl text-[#386753] dark:text-[#81B29A] tracking-tight">
-            NutriAtelier
-        </div>
-<div class="hidden md:flex items-center space-x-8">
-<a class="font-label font-medium text-sm tracking-wide text-[#386753]/70 dark:text-slate-400 hover:text-[#386753] transition-colors" href="#">Αρχική</a>
-<a class="font-label font-medium text-sm tracking-wide text-[#386753]/70 dark:text-slate-400 hover:text-[#386753] transition-colors" href="#">Υπηρεσίες</a>
-<a class="font-label font-medium text-sm tracking-wide text-[#386753]/70 dark:text-slate-400 hover:text-[#386753] transition-colors" href="#">Συνταγές</a>
-<a class="font-label font-medium text-sm tracking-wide text-[#386753]/70 dark:text-slate-400 hover:text-[#386753] transition-colors" href="#">Blog</a>
-<a class="font-label font-medium text-sm tracking-wide text-[#386753]/70 dark:text-slate-400 hover:text-[#386753] transition-colors" href="#">Επικοινωνία</a>
-</div>
-<button class="bg-primary text-on-primary px-6 py-2.5 rounded-xl font-label font-bold text-sm tracking-wide transition-transform active:scale-95 duration-200">
-            Κλείσε Ραντεβού
-        </button>
-</nav>
-</header>
 <main class="pt-32 pb-24 px-6 md:px-8 max-w-3xl mx-auto">
 <!-- Hero Section -->
 <div class="mb-16 text-center">
@@ -90,22 +72,4 @@ import Layout from '../layouts/Layout.astro';
 </div>
 </div>
 </main>
-<!-- Footer -->
-<footer class="w-full border-t border-[#c0c9c2]/20 bg-[#e6e3d0] dark:bg-slate-950">
-<div class="flex flex-col md:flex-row justify-between items-center gap-6 py-12 px-8 max-w-7xl mx-auto">
-<div class="flex flex-col items-center md:items-start gap-2">
-<div class="font-headline font-bold text-xl text-[#386753]">NutriAtelier</div>
-<p class="font-body text-sm leading-relaxed text-[#386753]/60 dark:text-slate-500 text-center md:text-left">
-                © 2024 NutriAtelier. Με επιφύλαξη παντός δικαιώματος. Σχεδιασμένο για την ευεξία σας.
-            </p>
-</div>
-<div class="flex flex-wrap justify-center gap-8">
-<a class="font-label text-sm leading-relaxed text-[#386753]/60 dark:text-slate-500 hover:text-[#386753] dark:hover:text-[#81B29A] transition-colors duration-200" href="#">Προσωπικά Δεδομένα</a>
-<a class="font-label text-sm leading-relaxed font-semibold text-[#386753]" href="#">Όροι Χρήσης</a>
-<a class="font-label text-sm leading-relaxed text-[#386753]/60 dark:text-slate-500 hover:text-[#386753] dark:hover:text-[#81B29A] transition-colors duration-200" href="#">Συχνές Ερωτήσεις</a>
-<a class="font-label text-sm leading-relaxed text-[#386753]/60 dark:text-slate-500 hover:text-[#386753] dark:hover:text-[#81B29A] transition-colors duration-200" href="#">Newsletter</a>
-</div>
-</div>
-</footer>
-
 </Layout>

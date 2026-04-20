@@ -2,24 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Πρότυπο Άρθρου (Single Post)">
+<Layout title="Πρότυπο Άρθρου (Single Post)" active="articles">
 
-<!-- TopNavBar -->
-<header class="fixed top-0 w-full z-50 bg-[#fdfae7]/80 backdrop-blur-md">
-<nav class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
-<div class="text-xl font-bold text-[#386753] font-headline tracking-tight">Nutritionist Portal</div>
-<!-- Desktop Links -->
-<div class="hidden md:flex gap-8 items-center">
-<a class="text-[#386753] font-bold border-b-2 border-[#386753] pb-1 transition-colors duration-200" href="#">Άρθρα</a>
-<a class="text-[#386753]/70 hover:text-[#386753] transition-colors duration-200" href="#">Συνταγές</a>
-<a class="text-[#386753]/70 hover:text-[#386753] transition-colors duration-200" href="#">Υπηρεσίες</a>
-<a class="text-[#386753]/70 hover:text-[#386753] transition-colors duration-200" href="#">Σχετικά</a>
-</div>
-<button class="bg-primary text-on-primary px-6 py-2.5 rounded-xl font-semibold active:scale-95 transition-all duration-150">
-                Κλείστε Ραντεβού
-            </button>
-</nav>
-</header>
 <main class="pt-24 pb-20">
 <!-- Hero Section -->
 <section class="max-w-5xl mx-auto px-6 text-center mb-16">
@@ -98,21 +82,4 @@ import Layout from '../layouts/Layout.astro';
 </section>
 </main>
 <!-- CTA Footer Banner -->
-<!-- Footer -->
-<footer class="w-full py-12 bg-[#e6e3d0]">
-<div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto gap-8">
-<div class="font-['Montserrat'] font-bold text-[#386753] text-xl">Nutritionist Portal</div>
-<div class="flex flex-wrap justify-center gap-6 text-sm font-['Inter']">
-<a class="text-[#386753]/60 hover:text-[#386753] underline transition-all" href="#">Πολιτική Απορρήτου</a>
-<a class="text-[#386753]/60 hover:text-[#386753] underline transition-all" href="#">Όροι Χρήσης</a>
-<a class="text-[#386753]/60 hover:text-[#386753] underline transition-all" href="#">Επικοινωνία</a>
-<a class="text-[#386753]/60 hover:text-[#386753] underline transition-all" href="#">Instagram</a>
-<a class="text-[#386753]/60 hover:text-[#386753] underline transition-all" href="#">Facebook</a>
-</div>
-<div class="text-sm text-[#386753]/60 font-['Inter']">
-                © 2024 Nutritionist Portal. Με επιφύλαξη παντός δικαιώματος.
-            </div>
-</div>
-</footer>
-
 </Layout>

@@ -2,24 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Επικοινωνία - Updated Typography">
+<Layout title="Επικοινωνία - Updated Typography" active="contact">
 
-<!-- Top Navigation Bar -->
-<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md">
-<div class="flex justify-between items-center px-8 h-20 w-full max-w-7xl mx-auto">
-<div class="text-2xl font-bold tracking-tight text-emerald-900 font-headline">Organic Nutrition</div>
-<div class="hidden md:flex gap-8 items-center">
-<a class="text-slate-600 hover:text-emerald-600 transition-colors font-medium" href="#">Αρχική</a>
-<a class="text-slate-600 hover:text-emerald-600 transition-colors font-medium" href="#">Υπηρεσίες</a>
-<a class="text-slate-600 hover:text-emerald-600 transition-colors font-medium" href="#">Κλείσε Ραντεβού</a>
-<a class="text-slate-600 hover:text-emerald-600 transition-colors font-medium" href="#">Άρθρα</a>
-<a class="text-emerald-700 border-b-2 border-emerald-700 pb-1 font-medium" href="#">Επικοινωνία</a>
-</div>
-<button class="bg-primary text-on-primary px-6 py-2.5 rounded-xl font-semibold hover:opacity-90 active:scale-95 transition-all shadow-sm">
-            Κλείσε Ραντεβού
-        </button>
-</div>
-</nav>
 <main class="pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto">
 <!-- Hero Section -->
 <header class="mb-20">
@@ -147,39 +131,4 @@ import Layout from '../layouts/Layout.astro';
 </div>
 </div>
 </main>
-<!-- Footer -->
-<footer class="bg-emerald-900 dark:bg-black w-full pt-16 pb-8">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-8 w-full max-w-7xl mx-auto">
-<div>
-<h3 class="text-xl font-bold text-emerald-50 mb-6">Organic Atelier</h3>
-<p class="text-emerald-100/70 leading-relaxed">
-                Εξατομικευμένες λύσεις διατροφής βασισμένες σε επιστημονικά δεδομένα και ολιστική προσέγγιση.
-            </p>
-</div>
-<div>
-<h4 class="text-emerald-50 font-semibold mb-6">Γρήγοροι Σύνδεσμοι</h4>
-<ul class="space-y-4">
-<li><a class="text-emerald-100/70 hover:text-white transition-colors" href="#">Υπηρεσίες</a></li>
-<li><a class="text-emerald-100/70 hover:text-white transition-colors" href="#">Άρθρα Υγείας</a></li>
-<li><a class="text-emerald-100/70 hover:text-white transition-colors" href="#">Συνταγές</a></li>
-</ul>
-</div>
-<div>
-<h4 class="text-emerald-50 font-semibold mb-6">Νομικά</h4>
-<ul class="space-y-4">
-<li><a class="text-emerald-100/70 hover:text-white transition-colors" href="#">Πολιτική Απορρήτου</a></li>
-<li><a class="text-emerald-100/70 hover:text-white transition-colors" href="#">Όροι Χρήσης</a></li>
-<li><a class="text-emerald-100/70 hover:text-white transition-colors" href="#">Συχνές Ερωτήσεις</a></li>
-</ul>
-</div>
-</div>
-<div class="max-w-7xl mx-auto px-8 mt-16 pt-8 border-t border-emerald-800 flex flex-col md:flex-row justify-between items-center gap-4">
-<p class="text-emerald-100/50 text-sm">© 2024 The Organic Atelier. Με επιφύλαξη παντός δικαιώματος.</p>
-<div class="flex gap-6">
-<a class="text-emerald-100/50 hover:text-white" href="#"><span class="material-symbols-outlined" data-icon="facebook">social_leaderboard</span></a>
-<a class="text-emerald-100/50 hover:text-white" href="#"><span class="material-symbols-outlined" data-icon="camera">camera</span></a>
-</div>
-</div>
-</footer>
-
 </Layout>
