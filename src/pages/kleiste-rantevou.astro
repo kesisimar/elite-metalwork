@@ -27,7 +27,7 @@ import Layout from '../layouts/Layout.astro';
 </div>
 </div>
 <!-- Calendar Grid -->
-<div class="grid grid-cols-7 gap-2 mb-8">
+<div id="calendar-grid" class="grid grid-cols-7 gap-2 mb-8">
 <!-- Days Header -->
 <div class="text-center py-2 text-xs font-bold text-outline uppercase tracking-wider">Δευ</div>
 <div class="text-center py-2 text-xs font-bold text-outline uppercase tracking-wider">Τρι</div>
@@ -44,34 +44,34 @@ import Layout from '../layouts/Layout.astro';
 <div class="aspect-square flex items-center justify-center text-outline-variant opacity-40">30</div>
 <div class="aspect-square flex items-center justify-center text-on-surface">1</div>
 <div class="aspect-square flex items-center justify-center text-on-surface">2</div>
-<button class="aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary hover:text-white transition-all shadow-sm">3</button>
-<button class="aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary hover:text-white transition-all shadow-sm">4</button>
-<button class="aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary hover:text-white transition-all shadow-sm">5</button>
-<button class="aspect-square flex items-center justify-center bg-primary text-on-primary rounded-lg shadow-md font-bold">6</button>
-<button class="aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary hover:text-white transition-all shadow-sm">7</button>
+<button type="button" class="date-btn aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary/10 transition-all shadow-sm">3</button>
+<button type="button" class="date-btn aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary/10 transition-all shadow-sm">4</button>
+<button type="button" class="date-btn aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary/10 transition-all shadow-sm">5</button>
+<button type="button" class="date-btn aspect-square flex items-center justify-center bg-primary text-on-primary rounded-lg shadow-md font-bold">6</button>
+<button type="button" class="date-btn aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary/10 transition-all shadow-sm">7</button>
 <div class="aspect-square flex items-center justify-center text-on-surface font-medium">8</div>
 <div class="aspect-square flex items-center justify-center text-on-surface font-medium">9</div>
-<button class="aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary hover:text-white transition-all shadow-sm">10</button>
-<button class="aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary hover:text-white transition-all shadow-sm">11</button>
-<button class="aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary hover:text-white transition-all shadow-sm">12</button>
-<button class="aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary hover:text-white transition-all shadow-sm">13</button>
-<button class="aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary hover:text-white transition-all shadow-sm">14</button>
+<button type="button" class="date-btn aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary/10 transition-all shadow-sm">10</button>
+<button type="button" class="date-btn aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary/10 transition-all shadow-sm">11</button>
+<button type="button" class="date-btn aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary/10 transition-all shadow-sm">12</button>
+<button type="button" class="date-btn aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary/10 transition-all shadow-sm">13</button>
+<button type="button" class="date-btn aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary/10 transition-all shadow-sm">14</button>
 <div class="aspect-square flex items-center justify-center text-on-surface font-medium">15</div>
 <div class="aspect-square flex items-center justify-center text-on-surface font-medium">16</div>
 </div>
 <!-- Time Slots -->
 <div class="mt-8 border-t border-outline-variant/20 pt-8">
-<h3 class="text-sm font-semibold text-primary mb-4 flex items-center gap-2">
+<h3 id="selected-date-display" class="text-sm font-semibold text-primary mb-4 flex items-center gap-2">
 <span class="material-symbols-outlined text-base">schedule</span>
                         Διαθέσιμες Ώρες (6 Οκτωβρίου)
                     </h3>
-<div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-<button class="py-3 px-4 bg-surface-container-lowest border border-outline-variant/30 rounded-lg text-sm font-medium hover:border-primary hover:text-primary transition-all">09:00</button>
-<button class="py-3 px-4 bg-primary text-on-primary rounded-lg text-sm font-bold shadow-sm">10:30</button>
-<button class="py-3 px-4 bg-surface-container-lowest border border-outline-variant/30 rounded-lg text-sm font-medium hover:border-primary hover:text-primary transition-all">12:00</button>
-<button class="py-3 px-4 bg-surface-container-lowest border border-outline-variant/30 rounded-lg text-sm font-medium hover:border-primary hover:text-primary transition-all">14:00</button>
-<button class="py-3 px-4 bg-surface-container-lowest border border-outline-variant/30 rounded-lg text-sm font-medium hover:border-primary hover:text-primary transition-all">16:30</button>
-<button class="py-3 px-4 bg-surface-container-lowest border border-outline-variant/30 rounded-lg text-sm font-medium hover:border-primary hover:text-primary transition-all">18:00</button>
+<div id="time-slots" class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+<button type="button" class="time-btn py-3 px-4 bg-surface-container-lowest border border-outline-variant/30 rounded-lg text-sm font-medium hover:border-primary hover:text-primary transition-all">09:00</button>
+<button type="button" class="time-btn py-3 px-4 bg-primary text-on-primary rounded-lg text-sm font-bold shadow-sm">10:30</button>
+<button type="button" class="time-btn py-3 px-4 bg-surface-container-lowest border border-outline-variant/30 rounded-lg text-sm font-medium hover:border-primary hover:text-primary transition-all">12:00</button>
+<button type="button" class="time-btn py-3 px-4 bg-surface-container-lowest border border-outline-variant/30 rounded-lg text-sm font-medium hover:border-primary hover:text-primary transition-all">14:00</button>
+<button type="button" class="time-btn py-3 px-4 bg-surface-container-lowest border border-outline-variant/30 rounded-lg text-sm font-medium hover:border-primary hover:text-primary transition-all">16:30</button>
+<button type="button" class="time-btn py-3 px-4 bg-surface-container-lowest border border-outline-variant/30 rounded-lg text-sm font-medium hover:border-primary hover:text-primary transition-all">18:00</button>
 </div>
 </div>
 </div>
@@ -79,36 +79,36 @@ import Layout from '../layouts/Layout.astro';
 <div class="lg:col-span-5 flex flex-col gap-8">
 <div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
 <h2 class="text-2xl font-bold text-on-surface mb-6">Στοιχεία Επικοινωνίας</h2>
-<form method="POST" action="#" class="space-y-6">
+<form id="booking-form" class="space-y-6">
 <div class="space-y-2">
 <label class="text-sm font-semibold text-on-surface-variant flex items-center gap-2">
 <span class="material-symbols-outlined text-base">person</span>
                                 Όνομα
                             </label>
-<input name="name" required class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary focus:bg-surface-container-highest transition-all text-on-surface" placeholder="Εισάγετε το ονοματεπώνυμό σας" type="text"/>
+<input id="name" name="name" required class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary focus:bg-surface-container-highest transition-all text-on-surface" placeholder="Εισάγετε το ονοματεπώνυμό σας" type="text"/>
 </div>
 <div class="space-y-2">
 <label class="text-sm font-semibold text-on-surface-variant flex items-center gap-2">
 <span class="material-symbols-outlined text-base">phone</span>
                                 Τηλέφωνο
                             </label>
-<input name="phone" required class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary focus:bg-surface-container-highest transition-all text-on-surface" placeholder="+30 690 0000000" type="tel"/>
+<input id="phone" name="phone" required class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary focus:bg-surface-container-highest transition-all text-on-surface" placeholder="+30 690 0000000" type="tel"/>
 </div>
 <div class="space-y-2">
 <label class="text-sm font-semibold text-on-surface-variant flex items-center gap-2">
 <span class="material-symbols-outlined text-base">medical_services</span>
                                 Σκοπός Επίσκεψης
                             </label>
-<select name="purpose" class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary focus:bg-surface-container-highest transition-all text-on-surface appearance-none">
-<option>Απώλεια Βάρους</option>
-<option>Αθλητική Διατροφή</option>
-<option>Κλινική Διατροφή (Παθήσεις)</option>
-<option>Διατροφική Εκπαίδευση</option>
-<option>Άλλο</option>
+<select id="purpose" name="purpose" class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary focus:bg-surface-container-highest transition-all text-on-surface appearance-none">
+<option value="Απώλεια Βάρους">Απώλεια Βάρους</option>
+<option value="Αθλητική Διατροφή">Αθλητική Διατροφή</option>
+<option value="Κλινική Διατροφή (Παθήσεις)">Κλινική Διατροφή (Παθήσεις)</option>
+<option value="Διατροφική Εκπαίδευση">Διατροφική Εκπαίδευση</option>
+<option value="Άλλο">Άλλο</option>
 </select>
 </div>
 <div class="pt-4">
-<button class="w-full bg-primary text-on-primary py-4 rounded-xl font-bold text-lg hover:shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2" type="submit">
+<button id="submit-btn" class="w-full bg-primary text-on-primary py-4 rounded-xl font-bold text-lg hover:shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2" type="submit">
 <span class="material-symbols-outlined">event_available</span>
                                 Επιβεβαίωση Ραντεβού
                             </button>
@@ -129,4 +129,96 @@ import Layout from '../layouts/Layout.astro';
 </div>
 </div>
 </main>
+
+<script>
+    let selectedDate = "2024-10-06"; 
+    let selectedTime = "10:30";     
+
+    const dateButtons = document.querySelectorAll('.date-btn');
+    const timeButtons = document.querySelectorAll('.time-btn');
+    const form = document.getElementById('booking-form');
+    const dateDisplay = document.getElementById('selected-date-display');
+
+    dateButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active classes from all date buttons
+            dateButtons.forEach(b => {
+                b.classList.remove('bg-primary', 'text-on-primary', 'shadow-md', 'font-bold');
+                b.classList.add('bg-surface-container-lowest');
+            });
+            
+            // Add active classes to clicked button
+            btn.classList.remove('bg-surface-container-lowest');
+            btn.classList.add('bg-primary', 'text-on-primary', 'shadow-md', 'font-bold');
+            
+            const day = btn.textContent.trim();
+            selectedDate = `2024-10-${day.padStart(2, '0')}`;
+            
+            if (dateDisplay) {
+                dateDisplay.innerHTML = `<span class="material-symbols-outlined text-base">schedule</span> Διαθέσιμες Ώρες (${day} Οκτωβρίου)`;
+            }
+        });
+    });
+
+    timeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active classes from all time buttons
+            timeButtons.forEach(b => {
+                b.classList.remove('bg-primary', 'text-on-primary', 'font-bold', 'shadow-sm');
+                b.classList.add('bg-surface-container-lowest', 'border', 'border-outline-variant/30', 'font-medium');
+            });
+            
+            // Add active classes to clicked button
+            btn.classList.remove('bg-surface-container-lowest', 'border', 'border-outline-variant/30', 'font-medium');
+            btn.classList.add('bg-primary', 'text-on-primary', 'font-bold', 'shadow-sm');
+            
+            selectedTime = btn.textContent.trim();
+        });
+    });
+
+    form?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const submitBtn = document.getElementById('submit-btn');
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> Επεξεργασία...';
+        }
+
+        const formData = new FormData(form as HTMLFormElement);
+        const data = {
+            name: formData.get('name'),
+            phone: formData.get('phone'),
+            purpose: formData.get('purpose'),
+            date: selectedDate,
+            time: selectedTime
+        };
+
+        try {
+            const response = await fetch('/submit-booking', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                alert('Επιτυχία! Το ραντεβού σας καταχωρήθηκε. Θα επικοινωνήσουμε μαζί σας σύντομα.');
+                (form as HTMLFormElement).reset();
+            } else {
+                alert('Σφάλμα: ' + (result.error || 'Κάτι πήγε στραβά.'));
+            }
+        } catch (error) {
+            console.error('Submission error:', error);
+            alert('Σφάλμα σύνδεσης. Παρακαλούμε προσπαθήστε ξανά αργότερα.');
+        } finally {
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span class="material-symbols-outlined">event_available</span> Επιβεβαίωση Ραντεβού';
+            }
+        }
+    });
+</script>
 </Layout>
+
