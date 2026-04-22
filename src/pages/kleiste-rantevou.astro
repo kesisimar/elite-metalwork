@@ -119,223 +119,171 @@ import Layout from '../layouts/Layout.astro';
 </main>
 
 <script>
-    // State Management
-    let currentMonth = new Date().getMonth();
-    let currentYear = new Date().getFullYear();
-    let selectedDate = null;
-    let selectedTime = null;
+    document.addEventListener('DOMContentLoaded', () => {
+        let currentMonth = new Date().getMonth();
+        let currentYear = new Date().getFullYear();
+        let selectedDate = null;
+        let selectedTime = null;
 
-    const GREEK_MONTHS = [
-        "Ιανουάριος", "Φεβρουάριος", "Μάρτιος", "Απρίλιος", "Μάιος", "Ιούνιος",
-        "Ιούλιος", "Αύγουστος", "Σεπτέμβριος", "Οκτώβριος", "Νοέμβριος", "Δεκέμβριος"
-    ];
-
-    // DOM Elements
-    const monthYearDisplay = document.getElementById('calendar-month-year');
-    const calendarGrid = document.getElementById('calendar-grid');
-    const prevBtn = document.getElementById('calendar-prev');
-    const nextBtn = document.getElementById('calendar-next');
-    const slotsContainer = document.getElementById('slots-container');
-    const slotsHeader = document.getElementById('slots-header');
-    const dateBadge = document.getElementById('selected-date-badge');
-    const bookingForm = document.getElementById('booking-form');
-    const submitBtn = document.getElementById('form-submit');
-
-    function renderCalendar() {
-        if (!monthYearDisplay || !calendarGrid) return;
-
-        // Update Header
-        monthYearDisplay.textContent = `${GREEK_MONTHS[currentMonth]} ${currentYear}`;
-
-        // Clear existing days but preserve week headers (first 7 children)
-        const dayHeaders = Array.from(calendarGrid.children).slice(0, 7);
-        calendarGrid.innerHTML = '';
-        dayHeaders.forEach(h => calendarGrid.appendChild(h));
-
-        // Calendar Logic
-        const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
-        const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+        const GREEK_MONTHS = ["Ιανουάριος", "Φεβρουάριος", "Μάρτιος", "Απρίλιος", "Μάιος", "Ιούνιος", "Ιούλιος", "Αύγουστος", "Σεπτέμβριος", "Οκτώβριος", "Νοέμβριος", "Δεκέμβριος"];
         
-        // Normalize: Mon=0, Tue=1, ..., Sun=6
-        const offset = firstDayOfMonth === 0 ? 6 : firstDayOfMonth - 1;
+        const monthYearDisplay = document.getElementById('calendar-month-year');
+        const calendarGrid = document.getElementById('calendar-grid');
+        const prevBtn = document.getElementById('calendar-prev');
+        const nextBtn = document.getElementById('calendar-next');
+        const slotsContainer = document.getElementById('slots-container');
+        const dateBadge = document.getElementById('selected-date-badge');
+        const bookingForm = document.getElementById('booking-form');
+        const submitBtn = document.getElementById('form-submit');
 
-        // Padding for previous month
-        for (let i = 0; i < offset; i++) {
-            const div = document.createElement('div');
-            div.className = "aspect-square flex items-center justify-center opacity-10 text-xs";
-            calendarGrid.appendChild(div);
-        }
+        function renderCalendar() {
+            if (!monthYearDisplay || !calendarGrid) return;
+            monthYearDisplay.textContent = `${GREEK_MONTHS[currentMonth]} ${currentYear}`;
 
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
+            // Clear days but preserve week headers (first 7 children)
+            const headers = Array.from(calendarGrid.children).slice(0, 7);
+            calendarGrid.innerHTML = '';
+            headers.forEach(h => calendarGrid.appendChild(h));
 
-        // Render Actual Days
-        for (let day = 1; day <= daysInMonth; day++) {
-            const dateObj = new Date(currentYear, currentMonth, day);
-            const isPast = dateObj < today;
-            const dateStr = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-            
-            const btn = document.createElement('button');
-            btn.type = 'button';
-            btn.textContent = day.toString();
-            btn.dataset.date = dateStr;
+            const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+            const offset = firstDayOfMonth === 0 ? 6 : firstDayOfMonth - 1;
 
-            if (isPast) {
-                btn.className = "aspect-square flex items-center justify-center text-outline-variant opacity-30 cursor-not-allowed text-sm font-medium";
-                btn.disabled = true;
-            } else {
-                const isActive = selectedDate === dateStr;
-                btn.className = `calendar-day-btn aspect-square flex items-center justify-center rounded-xl transition-all text-sm font-bold shadow-sm ${
-                    isActive 
-                    ? 'bg-primary text-on-primary shadow-lg shadow-primary/30 scale-105 z-10' 
-                    : 'bg-surface-container-lowest text-on-surface hover:bg-primary/10 hover:text-primary'
+            // Padding
+            for (let i = 0; i < offset; i++) {
+                const div = document.createElement('div');
+                div.className = "aspect-square opacity-10";
+                calendarGrid.appendChild(div);
+            }
+
+            const today = new Date();
+            today.setHours(0,0,0,0);
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dateObj = new Date(currentYear, currentMonth, day);
+                const isPast = dateObj < today;
+                const dateStr = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.textContent = day;
+                btn.className = `aspect-square flex items-center justify-center rounded-xl text-sm font-bold transition-all ${
+                    selectedDate === dateStr 
+                    ? 'bg-primary text-on-primary scale-105 shadow-lg' 
+                    : 'bg-surface-container-lowest text-on-surface hover:bg-primary/10 shadow-sm'
                 }`;
-                btn.addEventListener('click', () => handleDateSelection(dateStr, day, btn));
-            }
-            calendarGrid.appendChild(btn);
-        }
-    }
-
-    async function handleDateSelection(dateStr, day, btn) {
-        selectedDate = dateStr;
-        selectedTime = null; // Reset time on date change
-
-        // Visual feedback for selected day
-        document.querySelectorAll('.calendar-day-btn').forEach(b => {
-            b.classList.remove('bg-primary', 'text-on-primary', 'shadow-lg', 'shadow-primary/30', 'scale-105', 'z-10');
-            b.classList.add('bg-surface-container-lowest', 'text-on-surface');
-        });
-        btn.classList.remove('bg-surface-container-lowest', 'text-on-surface');
-        btn.classList.add('bg-primary', 'text-on-primary', 'shadow-lg', 'shadow-primary/30', 'scale-105', 'z-10');
-
-        // Update slots section
-        if (dateBadge) {
-            dateBadge.textContent = `${day} ${GREEK_MONTHS[currentMonth]}`;
-            dateBadge.classList.remove('hidden');
-        }
-
-        // Fetch Availability
-        slotsContainer.innerHTML = `
-            <div class="col-span-full py-12 text-center flex flex-col items-center gap-3">
-                <span class="material-symbols-outlined animate-spin text-primary text-3xl">sync</span>
-                <p class="text-xs font-bold text-primary uppercase tracking-widest">Ελεγχος Διαθεσιμότητας...</p>
-            </div>
-        `;
-
-        try {
-            const response = await fetch(`/get-availability?date=${dateStr}`);
-            const data = await response.json();
-            renderTimeSlots(data.bookedTimes || []);
-        } catch (error) {
-            slotsContainer.innerHTML = `<p class="col-span-full py-8 text-center text-error font-bold">Σφάλμα σύνδεσης. Παρακαλούμε δοκιμάστε ξανά.</p>`;
-        }
-    }
-
-    function renderTimeSlots(bookedTimes) {
-        const AVAILABLE_SLOTS = ["09:00", "10:30", "12:00", "14:00", "16:30", "18:00"];
-        slotsContainer.innerHTML = '';
-
-        AVAILABLE_SLOTS.forEach(time => {
-            const isBooked = bookedTimes.includes(time);
-            const btn = document.createElement('button');
-            btn.type = 'button';
-            btn.textContent = time;
-            btn.className = `time-slot-btn py-4 rounded-xl text-sm font-black transition-all flex items-center justify-center border-2`;
-
-            if (isBooked) {
-                btn.className += " bg-surface-container-high border-transparent text-outline opacity-40 cursor-not-allowed";
-                btn.disabled = true;
-            } else {
-                const isActive = selectedTime === time;
-                btn.className += isActive 
-                    ? " bg-primary border-primary text-on-primary shadow-lg shadow-primary/20 scale-[1.02]" 
-                    : " bg-surface-container-lowest border-outline-variant/30 text-on-surface hover:border-primary hover:text-primary";
-                btn.addEventListener('click', () => {
-                    selectedTime = time;
-                    document.querySelectorAll('.time-slot-btn:not(:disabled)').forEach(b => {
-                        b.classList.remove('bg-primary', 'border-primary', 'text-on-primary', 'shadow-lg', 'shadow-primary/20', 'scale-[1.02]');
-                        b.classList.add('bg-surface-container-lowest', 'border-outline-variant/30', 'text-on-surface');
+                
+                if (isPast) {
+                    btn.disabled = true;
+                    btn.className = "aspect-square opacity-20 cursor-not-allowed";
+                } else {
+                    btn.addEventListener('click', () => {
+                        selectedDate = dateStr;
+                        if (dateBadge) {
+                            dateBadge.textContent = `${day} ${GREEK_MONTHS[currentMonth]}`;
+                            dateBadge.classList.remove('hidden');
+                        }
+                        renderCalendar();
+                        fetchAvailability(dateStr);
                     });
-                    btn.classList.remove('bg-surface-container-lowest', 'border-outline-variant/30', 'text-on-surface');
-                    btn.classList.add('bg-primary', 'border-primary', 'text-on-primary', 'shadow-lg', 'shadow-primary/20', 'scale-[1.02]');
-                });
+                }
+                calendarGrid.appendChild(btn);
             }
-            slotsContainer.appendChild(btn);
-        });
-    }
-
-    // Navigation Listeners
-    prevBtn?.addEventListener('click', () => {
-        currentMonth--;
-        if (currentMonth < 0) {
-            currentMonth = 11;
-            currentYear--;
-        }
-        renderCalendar();
-    });
-
-    nextBtn?.addEventListener('click', () => {
-        currentMonth++;
-        if (currentMonth > 11) {
-            currentMonth = 0;
-            currentYear++;
-        }
-        renderCalendar();
-    });
-
-    // Form Submission
-    bookingForm?.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        if (!selectedDate || !selectedTime) {
-            alert('Παρακαλώ επιλέξτε πρώτα ημερομηνία και ώρα από το ημερολόγιο.');
-            return;
         }
 
-        if (submitBtn) {
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> ΕΠΕΞΕΡΓΑΣΙΑ...';
+        async function fetchAvailability(date) {
+            slotsContainer.innerHTML = '<div class="col-span-full text-center py-8 flex items-center justify-center gap-2 text-primary font-bold"><span class="material-symbols-outlined animate-spin">sync</span> Φόρτωση...</div>';
+            try {
+                const res = await fetch(`/get-availability?date=${date}`);
+                const data = await res.json();
+                renderSlots(data.bookedTimes || []);
+            } catch (e) {
+                slotsContainer.innerHTML = '<div class="col-span-full text-center py-8 text-error font-bold">Σφάλμα φόρτωσης.</div>';
+            }
         }
 
-        const formData = new FormData(bookingForm as HTMLFormElement);
-        const payload = {
-            name: formData.get('name'),
-            phone: formData.get('phone'),
-            purpose: formData.get('purpose'),
-            date: selectedDate,
-            time: selectedTime
-        };
-
-        try {
-            const response = await fetch('/submit-booking', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
+        function renderSlots(bookedTimes) {
+            const slots = ["09:00", "10:30", "12:00", "14:00", "16:30", "18:00"];
+            slotsContainer.innerHTML = '';
+            slots.forEach(time => {
+                const isBooked = bookedTimes.includes(time);
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.textContent = time;
+                btn.className = `py-4 rounded-xl border-2 transition-all font-black text-sm ${
+                    selectedTime === time 
+                    ? 'bg-primary border-primary text-on-primary shadow-lg' 
+                    : 'bg-surface-container-lowest border-outline-variant/30 text-on-surface hover:border-primary hover:text-primary'
+                } ${isBooked ? 'opacity-30 cursor-not-allowed bg-surface-container-high border-transparent' : ''}`;
+                
+                if (!isBooked) {
+                    btn.addEventListener('click', () => {
+                        selectedTime = time;
+                        renderSlots(bookedTimes);
+                    });
+                } else {
+                    btn.disabled = true;
+                }
+                slotsContainer.appendChild(btn);
             });
+        }
 
-            const result = await response.json();
+        prevBtn?.addEventListener('click', () => {
+            currentMonth--;
+            if (currentMonth < 0) { currentMonth = 11; currentYear--; }
+            renderCalendar();
+        });
 
-            if (result.success) {
-                alert('Το ραντεβού σας καταχωρήθηκε! Θα επικοινωνήσουμε μαζί σας σύντομα.');
-                window.location.reload();
-            } else {
-                alert('Σφάλμα: ' + (result.error || 'Κάτι πήγε στραβά.'));
+        nextBtn?.addEventListener('click', () => {
+            currentMonth++;
+            if (currentMonth > 11) { currentMonth = 0; currentYear++; }
+            renderCalendar();
+        });
+
+        bookingForm?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (!selectedDate || !selectedTime) return alert('Παρακαλώ επιλέξτε ημερομηνία και ώρα από το ημερολόγιο.');
+            
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> ΕΠΕΞΕΡΓΑΣΙΑ...';
+            }
+
+            const fd = new FormData(bookingForm as HTMLFormElement);
+            try {
+                const res = await fetch('/submit-booking', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: fd.get('name'),
+                        phone: fd.get('phone'),
+                        purpose: fd.get('purpose'),
+                        date: selectedDate,
+                        time: selectedTime
+                    })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    alert('Το ραντεβού σας καταχωρήθηκε με επιτυχία!');
+                    window.location.reload();
+                } else {
+                    alert('Σφάλμα: ' + data.error);
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = '<span class="material-symbols-outlined">event_available</span> Επιβεβαίωση Ραντεβού';
+                    }
+                }
+            } catch (e) {
+                alert('Σφάλμα σύνδεσης. Δοκιμάστε ξανά.');
                 if (submitBtn) {
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = '<span class="material-symbols-outlined">event_available</span> Επιβεβαίωση Ραντεβού';
                 }
             }
-        } catch (error) {
-            alert('Σφάλμα σύνδεσης. Παρακαλούμε προσπαθήστε ξανά.');
-            if (submitBtn) {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<span class="material-symbols-outlined">event_available</span> Επιβεβαίωση Ραντεβού';
-            }
-        }
-    });
+        });
 
-    // Initial Execution
-    renderCalendar();
+        renderCalendar();
+    });
 </script>
 </Layout>
 

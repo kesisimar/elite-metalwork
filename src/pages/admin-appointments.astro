@@ -3,29 +3,27 @@ import Layout from '../layouts/Layout.astro';
 
 export const prerender = false;
 
-// Access Cloudflare environment
-// Note: In local development with Wrangler, use wrangler pages dev
+// Access Cloudflare environment strictly as requested
 const runtime = Astro.locals.runtime;
-const DB = runtime?.env?.DB;
-
-// Simple password protection
-// You can set ADMIN_PASSWORD as an environment variable in Cloudflare Pages settings
-const ADMIN_PASSWORD = runtime?.env?.ADMIN_PASSWORD || "admin123"; 
-
-const url = new URL(Astro.request.url);
-const pass = url.searchParams.get('pass');
-
-let authorized = pass === ADMIN_PASSWORD;
+const env = runtime?.env;
+const DB = env?.DB;
 
 let appointments = [];
 let error = null;
 
+// Simple password protection
+const ADMIN_PASSWORD = env?.ADMIN_PASSWORD || "admin123"; 
+const url = new URL(Astro.request.url);
+const pass = url.searchParams.get('pass');
+const authorized = pass === ADMIN_PASSWORD;
+
 if (authorized) {
     if (!DB) {
-        error = "Database binding 'DB' not found. Ensure it is set up in Cloudflare Pages.";
+        error = "Database binding 'DB' not found.";
     } else {
         try {
-            const { results } = await DB.prepare("SELECT * FROM appointments ORDER BY created_at DESC").all();
+            // Using the requested SQL statement structure
+            const { results } = await DB.prepare('SELECT * FROM appointments ORDER BY created_at DESC').all();
             appointments = results;
         } catch (e) {
             error = e.message;
