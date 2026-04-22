@@ -11,9 +11,24 @@ export async function onRequestPost(context) {
       });
     }
 
+    // Check if slot is already booked
+    const existing = await env.DB.prepare(
+      "SELECT id FROM appointments WHERE appointment_date = ? AND appointment_time = ? AND status != 'cancelled'"
+    )
+      .bind(date, time)
+      .first();
+
+    if (existing) {
+      return new Response(JSON.stringify({ 
+        success: false,
+        error: "Αυτή η ώρα είναι ήδη κλεισμένη. Παρακαλούμε επιλέξτε άλλη." 
+      }), {
+        status: 409,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
     // Insert into D1 database
-    // Table columns: id, fullname, phone, purpose, appointment_date, appointment_time, status, created_at
-    // We bind fullname, phone, purpose, appointment_date, appointment_time, and status (default 'pending')
     await env.DB.prepare(
       "INSERT INTO appointments (fullname, phone, purpose, appointment_date, appointment_time, status) VALUES (?, ?, ?, ?, ?, ?)"
     )
@@ -22,7 +37,7 @@ export async function onRequestPost(context) {
 
     return new Response(JSON.stringify({ 
       success: true, 
-      message: "Appointment submitted successfully" 
+      message: "Το ραντεβού σας καταχωρήθηκε με επιτυχία!" 
     }), {
       status: 200,
       headers: { "Content-Type": "application/json" },

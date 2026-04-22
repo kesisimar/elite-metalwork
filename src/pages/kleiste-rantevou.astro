@@ -14,14 +14,14 @@ import Layout from '../layouts/Layout.astro';
 </div>
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 <!-- Left Column: Calendar Interface -->
-<div class="lg:col-span-7 bg-surface-container-low rounded-xl p-6 md:p-8">
+<div class="lg:col-span-7 bg-surface-container-low rounded-xl p-6 md:p-8 border border-outline-variant/10">
 <div class="flex items-center justify-between mb-8">
-<h2 class="text-xl font-semibold text-on-surface">Οκτώβριος 2024</h2>
+<h2 id="current-month-display" class="text-xl font-bold text-on-surface">Οκτώβριος 2024</h2>
 <div class="flex gap-2">
-<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors">
+<button id="prev-month" type="button" class="p-2 rounded-full hover:bg-primary/10 text-primary transition-colors">
 <span class="material-symbols-outlined">chevron_left</span>
 </button>
-<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors">
+<button id="next-month" type="button" class="p-2 rounded-full hover:bg-primary/10 text-primary transition-colors">
 <span class="material-symbols-outlined">chevron_right</span>
 </button>
 </div>
@@ -36,70 +36,47 @@ import Layout from '../layouts/Layout.astro';
 <div class="text-center py-2 text-xs font-bold text-outline uppercase tracking-wider">Παρ</div>
 <div class="text-center py-2 text-xs font-bold text-secondary uppercase tracking-wider">Σαβ</div>
 <div class="text-center py-2 text-xs font-bold text-secondary uppercase tracking-wider">Κυρ</div>
-<!-- Calendar Days (Mockup) -->
-<div class="aspect-square flex items-center justify-center text-outline-variant opacity-40">26</div>
-<div class="aspect-square flex items-center justify-center text-outline-variant opacity-40">27</div>
-<div class="aspect-square flex items-center justify-center text-outline-variant opacity-40">28</div>
-<div class="aspect-square flex items-center justify-center text-outline-variant opacity-40">29</div>
-<div class="aspect-square flex items-center justify-center text-outline-variant opacity-40">30</div>
-<div class="aspect-square flex items-center justify-center text-on-surface">1</div>
-<div class="aspect-square flex items-center justify-center text-on-surface">2</div>
-<button type="button" class="date-btn aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary/10 transition-all shadow-sm">3</button>
-<button type="button" class="date-btn aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary/10 transition-all shadow-sm">4</button>
-<button type="button" class="date-btn aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary/10 transition-all shadow-sm">5</button>
-<button type="button" class="date-btn aspect-square flex items-center justify-center bg-primary text-on-primary rounded-lg shadow-md font-bold">6</button>
-<button type="button" class="date-btn aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary/10 transition-all shadow-sm">7</button>
-<div class="aspect-square flex items-center justify-center text-on-surface font-medium">8</div>
-<div class="aspect-square flex items-center justify-center text-on-surface font-medium">9</div>
-<button type="button" class="date-btn aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary/10 transition-all shadow-sm">10</button>
-<button type="button" class="date-btn aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary/10 transition-all shadow-sm">11</button>
-<button type="button" class="date-btn aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary/10 transition-all shadow-sm">12</button>
-<button type="button" class="date-btn aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary/10 transition-all shadow-sm">13</button>
-<button type="button" class="date-btn aspect-square flex items-center justify-center bg-surface-container-lowest rounded-lg hover:bg-primary/10 transition-all shadow-sm">14</button>
-<div class="aspect-square flex items-center justify-center text-on-surface font-medium">15</div>
-<div class="aspect-square flex items-center justify-center text-on-surface font-medium">16</div>
+<!-- Days will be dynamically generated -->
 </div>
 <!-- Time Slots -->
 <div class="mt-8 border-t border-outline-variant/20 pt-8">
-<h3 id="selected-date-display" class="text-sm font-semibold text-primary mb-4 flex items-center gap-2">
+<h3 id="selected-date-display" class="text-sm font-bold text-primary mb-6 flex items-center gap-2">
 <span class="material-symbols-outlined text-base">schedule</span>
-                        Διαθέσιμες Ώρες (6 Οκτωβρίου)
+                        Επιλέξτε Ημερομηνία για διαθεσιμότητα
                     </h3>
-<div id="time-slots" class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-<button type="button" class="time-btn py-3 px-4 bg-surface-container-lowest border border-outline-variant/30 rounded-lg text-sm font-medium hover:border-primary hover:text-primary transition-all">09:00</button>
-<button type="button" class="time-btn py-3 px-4 bg-primary text-on-primary rounded-lg text-sm font-bold shadow-sm">10:30</button>
-<button type="button" class="time-btn py-3 px-4 bg-surface-container-lowest border border-outline-variant/30 rounded-lg text-sm font-medium hover:border-primary hover:text-primary transition-all">12:00</button>
-<button type="button" class="time-btn py-3 px-4 bg-surface-container-lowest border border-outline-variant/30 rounded-lg text-sm font-medium hover:border-primary hover:text-primary transition-all">14:00</button>
-<button type="button" class="time-btn py-3 px-4 bg-surface-container-lowest border border-outline-variant/30 rounded-lg text-sm font-medium hover:border-primary hover:text-primary transition-all">16:30</button>
-<button type="button" class="time-btn py-3 px-4 bg-surface-container-lowest border border-outline-variant/30 rounded-lg text-sm font-medium hover:border-primary hover:text-primary transition-all">18:00</button>
+<div id="time-slots" class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+<!-- Time slots will be dynamically generated -->
+<div class="col-span-full py-8 text-center text-outline text-sm opacity-60 bg-surface-container-high/30 rounded-xl border border-dashed border-outline-variant/30">
+                        Παρακαλούμε επιλέξτε μια ημερομηνία πρώτα
+                    </div>
 </div>
 </div>
 </div>
 <!-- Right Column: Form -->
 <div class="lg:col-span-5 flex flex-col gap-8">
-<div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm border border-outline-variant/10">
 <h2 class="text-2xl font-bold text-on-surface mb-6">Στοιχεία Επικοινωνίας</h2>
 <form id="booking-form" class="space-y-6">
 <div class="space-y-2">
 <label class="text-sm font-semibold text-on-surface-variant flex items-center gap-2">
-<span class="material-symbols-outlined text-base">person</span>
+<span class="material-symbols-outlined text-base text-primary">person</span>
                                 Όνομα
                             </label>
 <input id="name" name="name" required class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary focus:bg-surface-container-highest transition-all text-on-surface" placeholder="Εισάγετε το ονοματεπώνυμό σας" type="text"/>
 </div>
 <div class="space-y-2">
 <label class="text-sm font-semibold text-on-surface-variant flex items-center gap-2">
-<span class="material-symbols-outlined text-base">phone</span>
+<span class="material-symbols-outlined text-base text-primary">phone</span>
                                 Τηλέφωνο
                             </label>
 <input id="phone" name="phone" required class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary focus:bg-surface-container-highest transition-all text-on-surface" placeholder="+30 690 0000000" type="tel"/>
 </div>
 <div class="space-y-2">
 <label class="text-sm font-semibold text-on-surface-variant flex items-center gap-2">
-<span class="material-symbols-outlined text-base">medical_services</span>
+<span class="material-symbols-outlined text-base text-primary">medical_services</span>
                                 Σκοπός Επίσκεψης
                             </label>
-<select id="purpose" name="purpose" class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary focus:bg-surface-container-highest transition-all text-on-surface appearance-none">
+<select id="purpose" name="purpose" class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary focus:bg-surface-container-highest transition-all text-on-surface appearance-none cursor-pointer">
 <option value="Απώλεια Βάρους">Απώλεια Βάρους</option>
 <option value="Αθλητική Διατροφή">Αθλητική Διατροφή</option>
 <option value="Κλινική Διατροφή (Παθήσεις)">Κλινική Διατροφή (Παθήσεις)</option>
@@ -119,11 +96,11 @@ import Layout from '../layouts/Layout.astro';
 </form>
 </div>
 <!-- Info Card -->
-<div class="bg-secondary-container text-on-secondary-container rounded-xl p-6 flex gap-4 items-start">
+<div class="bg-secondary-container text-on-secondary-container rounded-xl p-6 flex gap-4 items-start border border-secondary/10">
 <span class="material-symbols-outlined text-3xl">info</span>
 <div>
 <h4 class="font-bold mb-1">Πληροφορίες Ραντεβού</h4>
-<p class="text-sm opacity-90">Οι συνεδρίες πραγματοποιούνται είτε δια ζώσης στο γραφείο μας είτε μέσω βιντεοκλήσης. Θα λάβετε email επιβεβαίωσης εντός 24 ωρών.</p>
+<p class="text-sm opacity-90 leading-relaxed">Οι συνεδρίες πραγματοποιούνται είτε δια ζώσης στο γραφείο μας είτε μέσω βιντεοκλήσης. Θα λάβετε email επιβεβαίωσης εντός 24 ωρών.</p>
 </div>
 </div>
 </div>
@@ -131,54 +108,170 @@ import Layout from '../layouts/Layout.astro';
 </main>
 
 <script>
-    let selectedDate = "2024-10-06"; 
-    let selectedTime = "10:30";     
+    let currentDate = new Date();
+    let selectedDate = null;
+    let selectedTime = null;
 
-    const dateButtons = document.querySelectorAll('.date-btn');
-    const timeButtons = document.querySelectorAll('.time-btn');
-    const form = document.getElementById('booking-form');
+    const monthDisplay = document.getElementById('current-month-display');
+    const calendarGrid = document.getElementById('calendar-grid');
+    const prevBtn = document.getElementById('prev-month');
+    const nextBtn = document.getElementById('next-month');
     const dateDisplay = document.getElementById('selected-date-display');
+    const timeSlotsContainer = document.getElementById('time-slots');
+    const form = document.getElementById('booking-form');
 
-    dateButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Remove active classes from all date buttons
-            dateButtons.forEach(b => {
-                b.classList.remove('bg-primary', 'text-on-primary', 'shadow-md', 'font-bold');
-                b.classList.add('bg-surface-container-lowest');
-            });
+    const greekMonths = [
+        "Ιανουάριος", "Φεβρουάριος", "Μάρτιος", "Απρίλιος", "Μάιος", "Ιούνιος",
+        "Ιούλιος", "Αύγουστος", "Σεπτέμβριος", "Οκτώβριος", "Νοέμβριος", "Δεκέμβριος"
+    ];
+
+    function renderCalendar() {
+        const year = currentDate.getFullYear();
+        const month = currentDate.getMonth();
+        
+        if (monthDisplay) {
+            monthDisplay.textContent = `${greekMonths[month]} ${year}`;
+        }
+
+        // Clear existing days but keep the header
+        const headers = Array.from(calendarGrid.querySelectorAll('.text-center.py-2'));
+        calendarGrid.innerHTML = '';
+        headers.forEach(h => calendarGrid.appendChild(h));
+
+        const firstDay = new Date(year, month, 1).getDay();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        
+        // Adjust for Greek week starting on Monday (0=Sun, 1=Mon... -> 1=Mon, 0=Sun)
+        const offset = firstDay === 0 ? 6 : firstDay - 1;
+
+        // Previous month padding
+        for (let i = 0; i < offset; i++) {
+            const div = document.createElement('div');
+            div.className = "aspect-square flex items-center justify-center text-outline-variant opacity-20 text-sm";
+            calendarGrid.appendChild(div);
+        }
+
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        for (let day = 1; day <= daysInMonth; day++) {
+            const dateObj = new Date(year, month, day);
+            const isPast = dateObj < today;
+            const dateString = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+
+            const btn = document.createElement('button');
+            btn.type = "button";
+            btn.textContent = day.toString();
+            btn.dataset.date = dateString;
             
-            // Add active classes to clicked button
-            btn.classList.remove('bg-surface-container-lowest');
-            btn.classList.add('bg-primary', 'text-on-primary', 'shadow-md', 'font-bold');
-            
-            const day = btn.textContent.trim();
-            selectedDate = `2024-10-${day.padStart(2, '0')}`;
-            
-            if (dateDisplay) {
-                dateDisplay.innerHTML = `<span class="material-symbols-outlined text-base">schedule</span> Διαθέσιμες Ώρες (${day} Οκτωβρίου)`;
+            if (isPast) {
+                btn.className = "aspect-square flex items-center justify-center text-outline-variant opacity-30 cursor-not-allowed text-sm font-medium";
+                btn.disabled = true;
+            } else {
+                const isSelected = selectedDate === dateString;
+                btn.className = `date-btn aspect-square flex items-center justify-center rounded-lg transition-all text-sm font-bold ${
+                    isSelected 
+                    ? 'bg-primary text-on-primary shadow-md transform scale-105' 
+                    : 'bg-surface-container-lowest text-on-surface hover:bg-primary/10 hover:text-primary shadow-sm'
+                }`;
+                btn.onclick = () => handleDateClick(dateString, day, btn);
             }
+            calendarGrid.appendChild(btn);
+        }
+    }
+
+    async function handleDateClick(dateString, day, btn) {
+        selectedDate = dateString;
+        selectedTime = null; 
+
+        // Update UI selection for dates
+        document.querySelectorAll('.date-btn').forEach(b => {
+            b.classList.remove('bg-primary', 'text-on-primary', 'shadow-md', 'scale-105');
+            b.classList.add('bg-surface-container-lowest', 'text-on-surface');
         });
+        btn.classList.remove('bg-surface-container-lowest', 'text-on-surface');
+        btn.classList.add('bg-primary', 'text-on-primary', 'shadow-md', 'scale-105');
+
+        if (dateDisplay) {
+            dateDisplay.innerHTML = `<span class="material-symbols-outlined text-base">schedule</span> Διαθέσιμες Ώρες (${day} ${greekMonths[currentDate.getMonth()]})`;
+        }
+
+        // Show loading state for slots
+        timeSlotsContainer.innerHTML = '<div class="col-span-full py-8 text-center text-primary flex items-center justify-center gap-2"><span class="material-symbols-outlined animate-spin">sync</span> Φόρτωση διαθεσιμότητας...</div>';
+
+        await fetchAvailability(dateString);
+    }
+
+    async function fetchAvailability(date) {
+        try {
+            const response = await fetch(`/get-availability?date=${date}`);
+            const { bookedTimes } = await response.json();
+            updateTimeSlots(bookedTimes || []);
+        } catch (error) {
+            console.error("Failed to fetch availability", error);
+            timeSlotsContainer.innerHTML = '<div class="col-span-full py-4 text-center text-error text-sm">Σφάλμα κατά τη φόρτωση. Παρακαλούμε δοκιμάστε ξανά.</div>';
+        }
+    }
+
+    function updateTimeSlots(bookedTimes) {
+        const slots = ["09:00", "10:30", "12:00", "14:00", "16:30", "18:00"];
+        timeSlotsContainer.innerHTML = '';
+
+        slots.forEach(time => {
+            const isBooked = bookedTimes.includes(time);
+            const btn = document.createElement('button');
+            btn.type = "button";
+            btn.textContent = time;
+            btn.className = `time-btn py-4 px-4 rounded-xl text-sm transition-all flex items-center justify-center font-bold`;
+
+            if (isBooked) {
+                btn.classList.add('bg-surface-container-high', 'text-outline', 'opacity-40', 'cursor-not-allowed', 'border', 'border-outline-variant/20');
+                btn.disabled = true;
+                btn.title = "Μη διαθέσιμο";
+            } else {
+                const isSelected = selectedTime === time;
+                btn.classList.add('bg-surface-container-lowest', 'border', 'border-outline-variant/30', 'text-on-surface', 'hover:border-primary', 'hover:text-primary', 'hover:shadow-md');
+                if (isSelected) {
+                    btn.classList.add('bg-primary', 'text-on-primary', 'shadow-lg', 'border-primary');
+                    btn.classList.remove('bg-surface-container-lowest', 'border-outline-variant/30', 'text-on-surface');
+                }
+                btn.onclick = () => handleTimeClick(time, btn);
+            }
+            timeSlotsContainer.appendChild(btn);
+        });
+    }
+
+    function handleTimeClick(time, btn) {
+        selectedTime = time;
+        document.querySelectorAll('.time-btn:not(:disabled)').forEach(b => {
+            b.classList.remove('bg-primary', 'text-on-primary', 'shadow-lg', 'border-primary');
+            b.classList.add('bg-surface-container-lowest', 'border-outline-variant/30', 'text-on-surface');
+        });
+        btn.classList.remove('bg-surface-container-lowest', 'border-outline-variant/30', 'text-on-surface');
+        btn.classList.add('bg-primary', 'text-on-primary', 'shadow-lg', 'border-primary');
+    }
+
+    prevBtn?.addEventListener('click', () => {
+        currentDate.setMonth(currentDate.getMonth() - 1);
+        renderCalendar();
     });
 
-    timeButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Remove active classes from all time buttons
-            timeButtons.forEach(b => {
-                b.classList.remove('bg-primary', 'text-on-primary', 'font-bold', 'shadow-sm');
-                b.classList.add('bg-surface-container-lowest', 'border', 'border-outline-variant/30', 'font-medium');
-            });
-            
-            // Add active classes to clicked button
-            btn.classList.remove('bg-surface-container-lowest', 'border', 'border-outline-variant/30', 'font-medium');
-            btn.classList.add('bg-primary', 'text-on-primary', 'font-bold', 'shadow-sm');
-            
-            selectedTime = btn.textContent.trim();
-        });
+    nextBtn?.addEventListener('click', () => {
+        currentDate.setMonth(currentDate.getMonth() + 1);
+        renderCalendar();
     });
+
+    // Initial render
+    renderCalendar();
 
     form?.addEventListener('submit', async (e) => {
         e.preventDefault();
         
+        if (!selectedDate || !selectedTime) {
+            alert('Παρακαλώ επιλέξτε πρώτα μια διαθέσιμη ημερομηνία και ώρα από το ημερολόγιο.');
+            return;
+        }
+
         const submitBtn = document.getElementById('submit-btn');
         if (submitBtn) {
             submitBtn.disabled = true;
@@ -204,10 +297,14 @@ import Layout from '../layouts/Layout.astro';
             const result = await response.json();
 
             if (result.success) {
-                alert('Επιτυχία! Το ραντεβού σας καταχωρήθηκε. Θα επικοινωνήσουμε μαζί σας σύντομα.');
-                (form as HTMLFormElement).reset();
+                alert('Επιτυχία! Το ραντεβού σας καταχωρήθηκε. Θα επικοινωνήσουμε μαζί σας σύντομα για επιβεβαίωση.');
+                window.location.reload(); 
             } else {
                 alert('Σφάλμα: ' + (result.error || 'Κάτι πήγε στραβά.'));
+                if (result.error?.includes('κλεισμένη')) {
+                    // Refresh availability if double booking detected
+                    await fetchAvailability(selectedDate);
+                }
             }
         } catch (error) {
             console.error('Submission error:', error);
