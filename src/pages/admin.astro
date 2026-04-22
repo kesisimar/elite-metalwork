@@ -1,0 +1,69 @@
+---
+import Layout from '../layouts/Layout.astro';
+export const prerender = false;
+
+const runtime = Astro.locals.runtime;
+const DB = runtime?.env?.DB;
+const ADMIN_PASSWORD = runtime?.env?.ADMIN_PASSWORD || 'admin123';
+
+const url = new URL(Astro.request.url);
+const pass = url.searchParams.get('pass');
+const authorized = pass === ADMIN_PASSWORD;
+
+let appointments = [];
+let error = null;
+
+if (authorized) {
+    if (!DB) {
+        error = 'Database binding DB not found.';
+    } else {
+        try {
+            const { results } = await DB.prepare('SELECT * FROM appointments ORDER BY created_at DESC').all();
+            appointments = results || [];
+        } catch (e) {
+            error = e.message;
+        }
+    }
+}
+---
+
+<Layout title="Admin Appointments">
+    <main class="pt-32 pb-20 px-4 max-w-7xl mx-auto">
+        {!authorized ? (
+            <div class="max-w-md mx-auto text-center">
+                <h1 class="text-2xl font-bold mb-4">Πρόσβαση Διαχειριστή</h1>
+                <form method="GET" class="space-y-4">
+                    <input type="password" name="pass" placeholder="Κωδικός" class="w-full p-4 border rounded-lg" />
+                    <button type="submit" class="w-full bg-primary text-white py-4 rounded-xl">Είσοδος</button>
+                </form>
+            </div>
+        ) : (
+            <div>
+                <h1 class="text-3xl font-bold mb-6">Λίστα Ραντεβού</h1>
+                {error && <p class="text-red-500">Σφάλμα: {error}</p>}
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border">
+                        <thead>
+                            <tr class="bg-gray-100">
+                                <th class="p-4 border">Όνομα</th>
+                                <th class="p-4 border">Τηλέφωνο</th>
+                                <th class="p-4 border">Ημερομηνία</th>
+                                <th class="p-4 border">Ώρα</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {appointments.map((app) => (
+                                <tr class="border-b">
+                                    <td class="p-4">{app.fullname}</td>
+                                    <td class="p-4">{app.phone}</td>
+                                    <td class="p-4">{app.appointment_date}</td>
+                                    <td class="p-4">{app.appointment_time}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        )}
+    </main>
+</Layout>

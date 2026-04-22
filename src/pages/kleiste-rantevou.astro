@@ -2,288 +2,218 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Κλείσε Ραντεβού" ac<main class="pt-32 pb-20 px-4 md:px-8 max-w-7xl mx-auto">
-    <!-- Header Section -->
-    <div class="mb-12 text-center md:text-left">
-        <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4 tracking-tight">Προγραμματισμός Συνεδρίας</h1>
-        <p class="text-lg text-on-surface-variant max-w-2xl leading-relaxed">
-            Επιλέξτε την ημερομηνία και την ώρα που σας εξυπηρετεί για μια εξατομικευμένη διατροφική συμβουλευτική.
-        </p>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        <!-- Left Column: Calendar Interface -->
-        <div class="lg:col-span-7 bg-surface-container-low rounded-2xl p-6 md:p-8 border border-outline-variant/10 shadow-sm">
-            <div class="flex items-center justify-between mb-8">
-                <h2 id="calendar-month-year" class="text-2xl font-bold text-on-surface tracking-tight"></h2>
-                <div class="flex gap-1 bg-surface-container-high p-1 rounded-full">
-                    <button id="calendar-prev" type="button" class="p-2 rounded-full hover:bg-primary/10 text-primary transition-all active:scale-90" aria-label="Previous Month">
-                        <span class="material-symbols-outlined">chevron_left</span>
-                    </button>
-                    <button id="calendar-next" type="button" class="p-2 rounded-full hover:bg-primary/10 text-primary transition-all active:scale-90" aria-label="Next Month">
-                        <span class="material-symbols-outlined">chevron_right</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Calendar Grid -->
-            <div id="calendar-grid" class="grid grid-cols-7 gap-2 mb-8">
-                <!-- Weekdays Header -->
-                <div class="text-center py-3 text-[10px] font-black text-outline uppercase tracking-[0.2em]">Δευ</div>
-                <div class="text-center py-3 text-[10px] font-black text-outline uppercase tracking-[0.2em]">Τρι</div>
-                <div class="text-center py-3 text-[10px] font-black text-outline uppercase tracking-[0.2em]">Τετ</div>
-                <div class="text-center py-3 text-[10px] font-black text-outline uppercase tracking-[0.2em]">Πεμ</div>
-                <div class="text-center py-3 text-[10px] font-black text-outline uppercase tracking-[0.2em]">Παρ</div>
-                <div class="text-center py-3 text-[10px] font-black text-secondary uppercase tracking-[0.2em]">Σαβ</div>
-                <div class="text-center py-3 text-[10px] font-black text-secondary uppercase tracking-[0.2em]">Κυρ</div>
-                <!-- Dynamic Days Injection -->
-            </div>
-
-            <!-- Time Slots -->
-            <div class="mt-8 border-t border-outline-variant/20 pt-8">
-                <div class="flex items-center justify-between mb-6">
-                    <h3 id="slots-header" class="text-sm font-bold text-primary flex items-center gap-2 uppercase tracking-widest">
-                        <span class="material-symbols-outlined text-base">schedule</span>
-                        Διαθεσιμότητα
-                    </h3>
-                    <div id="selected-date-badge" class="hidden px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-bold"></div>
-                </div>
-                
-                <div id="slots-container" class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                    <div class="col-span-full py-12 text-center bg-surface-container-high/20 rounded-2xl border border-dashed border-outline-variant/30">
-                        <p class="text-on-surface-variant text-sm opacity-60">Επιλέξτε μια ημερομηνία από το ημερολόγιο για να δείτε τις διαθέσιμες ώρες.</p>
-                    </div>
-                </div>
-            </div>
+<Layout title="Κλείσε Ραντεβού">
+    <main class="pt-32 pb-20 px-4 md:px-8 max-w-7xl mx-auto">
+        <div class="mb-12 text-center md:text-left">
+            <h1 class="text-4xl font-bold text-primary mb-4">Κλείστε το Ραντεβού σας</h1>
+            <p class="text-on-surface-variant">Επιλέξτε ημερομηνία και ώρα.</p>
         </div>
 
-        <!-- Right Column: Form -->
-        <div class="lg:col-span-5 flex flex-col gap-6">
-            <div class="bg-surface-container-lowest rounded-2xl p-8 border border-outline-variant/10 shadow-sm">
-                <h2 class="text-2xl font-bold text-on-surface mb-8 tracking-tight">Στοιχεία Επικοινωνίας</h2>
-                <form id="booking-form" class="space-y-6">
-                    <div class="space-y-2 group">
-                        <label class="text-xs font-black text-on-surface-variant uppercase tracking-widest flex items-center gap-2 group-focus-within:text-primary transition-colors">
-                            <span class="material-symbols-outlined text-base">person</span>
-                            Ονοματεπώνυμο
-                        </label>
-                        <input id="form-name" name="name" required class="w-full bg-surface-container-high border-none rounded-xl p-4 focus:ring-2 focus:ring-primary focus:bg-surface-container-highest transition-all text-on-surface placeholder:text-outline" placeholder="π.χ. Μαρία Παπαδοπούλου" type="text"/>
-                    </div>
-
-                    <div class="space-y-2 group">
-                        <label class="text-xs font-black text-on-surface-variant uppercase tracking-widest flex items-center gap-2 group-focus-within:text-primary transition-colors">
-                            <span class="material-symbols-outlined text-base">phone</span>
-                            Τηλέφωνο Επικοινωνίας
-                        </label>
-                        <input id="form-phone" name="phone" required class="w-full bg-surface-container-high border-none rounded-xl p-4 focus:ring-2 focus:ring-primary focus:bg-surface-container-highest transition-all text-on-surface placeholder:text-outline" placeholder="+30 690 0000000" type="tel"/>
-                    </div>
-
-                    <div class="space-y-2 group">
-                        <label class="text-xs font-black text-on-surface-variant uppercase tracking-widest flex items-center gap-2 group-focus-within:text-primary transition-colors">
-                            <span class="material-symbols-outlined text-base">medical_services</span>
-                            Σκοπός Επίσκεψης
-                        </label>
-                        <div class="relative">
-                            <select id="form-purpose" name="purpose" class="w-full bg-surface-container-high border-none rounded-xl p-4 focus:ring-2 focus:ring-primary focus:bg-surface-container-highest transition-all text-on-surface appearance-none cursor-pointer">
-                                <option value="Απώλεια Βάρους">Απώλεια Βάρους</option>
-                                <option value="Αθλητική Διατροφή">Αθλητική Διατροφή</option>
-                                <option value="Κλινική Διατροφή (Παθήσεις)">Κλινική Διατροφή (Παθήσεις)</option>
-                                <option value="Διατροφική Εκπαίδευση">Διατροφική Εκπαίδευση</option>
-                                <option value="Άλλο">Άλλο</option>
-                            </select>
-                            <span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-outline">expand_more</span>
-                        </div>
-                    </div>
-
-                    <div class="pt-6">
-                        <button id="form-submit" type="submit" class="w-full bg-primary text-on-primary py-5 rounded-2xl font-black text-lg hover:shadow-xl hover:shadow-primary/20 transition-all active:scale-95 flex items-center justify-center gap-3">
-                            <span class="material-symbols-outlined">event_available</span>
-                            Επιβεβαίωση Ραντεβού
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Calendar Section -->
+            <div class="bg-surface-container-low p-6 rounded-2xl shadow-sm border border-outline-variant/10">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 id="monthDisplay" class="text-xl font-bold"></h2>
+                    <div class="flex gap-2">
+                        <button id="prevMonth" class="p-2 bg-gray-100 rounded-full hover:bg-gray-200">
+                            <span class="material-symbols-outlined">chevron_left</span>
                         </button>
-                        <p class="text-[10px] text-center text-outline mt-6 leading-relaxed uppercase font-bold tracking-tight">
-                            Με την επιβεβαίωση, αποδέχεστε την <a href="/privacy" class="underline hover:text-primary">Πολιτική Απορρήτου</a> και τους <a href="/terms" class="underline hover:text-primary">Όρους Χρήσης</a>.
-                        </p>
+                        <button id="nextMonth" class="p-2 bg-gray-100 rounded-full hover:bg-gray-200">
+                            <span class="material-symbols-outlined">chevron_right</span>
+                        </button>
                     </div>
+                </div>
+
+                <div id="calendarGrid" class="grid grid-cols-7 gap-1 text-center">
+                    <!-- Days header -->
+                    <div class="font-bold py-2">Δευ</div>
+                    <div class="font-bold py-2">Τρι</div>
+                    <div class="font-bold py-2">Τετ</div>
+                    <div class="font-bold py-2">Πεμ</div>
+                    <div class="font-bold py-2">Παρ</div>
+                    <div class="font-bold py-2">Σαβ</div>
+                    <div class="font-bold py-2">Κυρ</div>
+                    <!-- Days will be injected here -->
+                </div>
+            </div>
+
+            <!-- Slots & Form Section -->
+            <div class="space-y-6">
+                <div id="slotsSection" class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <h3 class="font-bold mb-4">Διαθέσιμες Ώρες</h3>
+                    <div id="slotsGrid" class="grid grid-cols-3 gap-2">
+                        <p class="col-span-3 text-gray-500 text-sm">Επιλέξτε ημερομηνία...</p>
+                    </div>
+                </div>
+
+                <form id="bookingForm" class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 space-y-4">
+                    <input type="text" name="name" placeholder="Ονοματεπώνυμο" required class="w-full p-4 bg-gray-50 rounded-xl border-none focus:ring-2 focus:ring-primary" />
+                    <input type="tel" name="phone" placeholder="Τηλέφωνο" required class="w-full p-4 bg-gray-50 rounded-xl border-none focus:ring-2 focus:ring-primary" />
+                    <select name="purpose" class="w-full p-4 bg-gray-50 rounded-xl border-none focus:ring-2 focus:ring-primary">
+                        <option>Απώλεια Βάρους</option>
+                        <option>Αθλητική Διατροφή</option>
+                        <option>Κλινική Διατροφή</option>
+                    </select>
+                    <button type="submit" class="w-full bg-primary text-white py-4 rounded-xl font-bold hover:opacity-90 transition-opacity">
+                        Επιβεβαίωση Ραντεβού
+                    </button>
                 </form>
             </div>
-
-            <div class="bg-primary/5 rounded-2xl p-6 flex gap-4 items-start border border-primary/10">
-                <span class="material-symbols-outlined text-primary text-2xl">info</span>
-                <div>
-                    <h4 class="font-bold text-primary mb-1">Σημείωση</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Θα λάβετε τηλεφωνική επιβεβαίωση ή SMS εντός 24 ωρών από την υποβολή του αιτήματός σας.</p>
-                </div>
-            </div>
         </div>
-    </div>
-</main>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        let currentMonth = new Date().getMonth();
-        let currentYear = new Date().getFullYear();
-        let selectedDate = null;
-        let selectedTime = null;
-
-        const GREEK_MONTHS = ["Ιανουάριος", "Φεβρουάριος", "Μάρτιος", "Απρίλιος", "Μάιος", "Ιούνιος", "Ιούλιος", "Αύγουστος", "Σεπτέμβριος", "Οκτώβριος", "Νοέμβριος", "Δεκέμβριος"];
-        
-        const monthYearDisplay = document.getElementById('calendar-month-year');
-        const calendarGrid = document.getElementById('calendar-grid');
-        const prevBtn = document.getElementById('calendar-prev');
-        const nextBtn = document.getElementById('calendar-next');
-        const slotsContainer = document.getElementById('slots-container');
-        const dateBadge = document.getElementById('selected-date-badge');
-        const bookingForm = document.getElementById('booking-form');
-        const submitBtn = document.getElementById('form-submit');
-
-        function renderCalendar() {
-            if (!monthYearDisplay || !calendarGrid) return;
-            monthYearDisplay.textContent = `${GREEK_MONTHS[currentMonth]} ${currentYear}`;
-
-            // Clear days but preserve week headers (first 7 children)
-            const headers = Array.from(calendarGrid.children).slice(0, 7);
-            calendarGrid.innerHTML = '';
-            headers.forEach(h => calendarGrid.appendChild(h));
-
-            const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
-            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-            const offset = firstDayOfMonth === 0 ? 6 : firstDayOfMonth - 1;
-
-            // Padding
-            for (let i = 0; i < offset; i++) {
-                const div = document.createElement('div');
-                div.className = "aspect-square opacity-10";
-                calendarGrid.appendChild(div);
-            }
-
-            const today = new Date();
-            today.setHours(0,0,0,0);
-
-            for (let day = 1; day <= daysInMonth; day++) {
-                const dateObj = new Date(currentYear, currentMonth, day);
-                const isPast = dateObj < today;
-                const dateStr = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-                
-                const btn = document.createElement('button');
-                btn.type = 'button';
-                btn.textContent = day;
-                btn.className = `aspect-square flex items-center justify-center rounded-xl text-sm font-bold transition-all ${
-                    selectedDate === dateStr 
-                    ? 'bg-primary text-on-primary scale-105 shadow-lg' 
-                    : 'bg-surface-container-lowest text-on-surface hover:bg-primary/10 shadow-sm'
-                }`;
-                
-                if (isPast) {
-                    btn.disabled = true;
-                    btn.className = "aspect-square opacity-20 cursor-not-allowed";
-                } else {
-                    btn.addEventListener('click', () => {
-                        selectedDate = dateStr;
-                        if (dateBadge) {
-                            dateBadge.textContent = `${day} ${GREEK_MONTHS[currentMonth]}`;
-                            dateBadge.classList.remove('hidden');
-                        }
-                        renderCalendar();
-                        fetchAvailability(dateStr);
-                    });
-                }
-                calendarGrid.appendChild(btn);
-            }
-        }
-
-        async function fetchAvailability(date) {
-            slotsContainer.innerHTML = '<div class="col-span-full text-center py-8 flex items-center justify-center gap-2 text-primary font-bold"><span class="material-symbols-outlined animate-spin">sync</span> Φόρτωση...</div>';
-            try {
-                const res = await fetch(`/get-availability?date=${date}`);
-                const data = await res.json();
-                renderSlots(data.bookedTimes || []);
-            } catch (e) {
-                slotsContainer.innerHTML = '<div class="col-span-full text-center py-8 text-error font-bold">Σφάλμα φόρτωσης.</div>';
-            }
-        }
-
-        function renderSlots(bookedTimes) {
-            const slots = ["09:00", "10:30", "12:00", "14:00", "16:30", "18:00"];
-            slotsContainer.innerHTML = '';
-            slots.forEach(time => {
-                const isBooked = bookedTimes.includes(time);
-                const btn = document.createElement('button');
-                btn.type = 'button';
-                btn.textContent = time;
-                btn.className = `py-4 rounded-xl border-2 transition-all font-black text-sm ${
-                    selectedTime === time 
-                    ? 'bg-primary border-primary text-on-primary shadow-lg' 
-                    : 'bg-surface-container-lowest border-outline-variant/30 text-on-surface hover:border-primary hover:text-primary'
-                } ${isBooked ? 'opacity-30 cursor-not-allowed bg-surface-container-high border-transparent' : ''}`;
-                
-                if (!isBooked) {
-                    btn.addEventListener('click', () => {
-                        selectedTime = time;
-                        renderSlots(bookedTimes);
-                    });
-                } else {
-                    btn.disabled = true;
-                }
-                slotsContainer.appendChild(btn);
-            });
-        }
-
-        prevBtn?.addEventListener('click', () => {
-            currentMonth--;
-            if (currentMonth < 0) { currentMonth = 11; currentYear--; }
-            renderCalendar();
-        });
-
-        nextBtn?.addEventListener('click', () => {
-            currentMonth++;
-            if (currentMonth > 11) { currentMonth = 0; currentYear++; }
-            renderCalendar();
-        });
-
-        bookingForm?.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            if (!selectedDate || !selectedTime) return alert('Παρακαλώ επιλέξτε ημερομηνία και ώρα από το ημερολόγιο.');
-            
-            if (submitBtn) {
-                submitBtn.disabled = true;
-                submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> ΕΠΕΞΕΡΓΑΣΙΑ...';
-            }
-
-            const fd = new FormData(bookingForm as HTMLFormElement);
-            try {
-                const res = await fetch('/submit-booking', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        name: fd.get('name'),
-                        phone: fd.get('phone'),
-                        purpose: fd.get('purpose'),
-                        date: selectedDate,
-                        time: selectedTime
-                    })
-                });
-                const data = await res.json();
-                if (data.success) {
-                    alert('Το ραντεβού σας καταχωρήθηκε με επιτυχία!');
-                    window.location.reload();
-                } else {
-                    alert('Σφάλμα: ' + data.error);
-                    if (submitBtn) {
-                        submitBtn.disabled = false;
-                        submitBtn.innerHTML = '<span class="material-symbols-outlined">event_available</span> Επιβεβαίωση Ραντεβού';
-                    }
-                }
-            } catch (e) {
-                alert('Σφάλμα σύνδεσης. Δοκιμάστε ξανά.');
-                if (submitBtn) {
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = '<span class="material-symbols-outlined">event_available</span> Επιβεβαίωση Ραντεβού';
-                }
-            }
-        });
-
-        renderCalendar();
-    });
-</script>
+    </main>
 </Layout>
 
+<script is:inline>
+    // Constants
+    const GREEK_MONTHS = ["Ιανουάριος", "Φεβρουάριος", "Μάρτιος", "Απρίλιος", "Μάιος", "Ιούνιος", "Ιούλιος", "Αύγουστος", "Σεπτέμβριος", "Οκτώβριος", "Νοέμβριος", "Δεκέμβριος"];
+    const AVAILABLE_HOURS = ["09:00", "10:30", "12:00", "14:00", "16:30", "18:00"];
+
+    // State
+    let viewDate = new Date();
+    let selectedDate = null;
+    let selectedTime = null;
+
+    // DOM
+    const monthDisplay = document.getElementById('monthDisplay');
+    const calendarGrid = document.getElementById('calendarGrid');
+    const prevBtn = document.getElementById('prevMonth');
+    const nextBtn = document.getElementById('nextMonth');
+    const slotsGrid = document.getElementById('slotsGrid');
+    const bookingForm = document.getElementById('bookingForm');
+
+    function render() {
+        const year = viewDate.getFullYear();
+        const month = viewDate.getMonth();
+        
+        // Month Text
+        monthDisplay.innerText = `${GREEK_MONTHS[month]} ${year}`;
+
+        // Clear previous days (keep headers)
+        const headers = Array.from(calendarGrid.children).slice(0, 7);
+        calendarGrid.innerHTML = '';
+        headers.forEach(h => calendarGrid.appendChild(h));
+
+        // Logic
+        const firstDay = new Date(year, month, 1).getDay();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        const offset = firstDay === 0 ? 6 : firstDay - 1;
+
+        // Padding
+        for (let i = 0; i < offset; i++) {
+            const div = document.createElement('div');
+            div.className = "py-4";
+            calendarGrid.appendChild(div);
+        }
+
+        const today = new Date();
+        today.setHours(0,0,0,0);
+
+        for (let day = 1; day <= daysInMonth; day++) {
+            const dateObj = new Date(year, month, day);
+            const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+            const isPast = dateObj < today;
+
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.innerText = day;
+            btn.className = `py-3 rounded-lg font-bold transition-colors ${
+                selectedDate === dateStr ? 'bg-primary text-white' : 'hover:bg-gray-100'
+            }`;
+
+            if (isPast) {
+                btn.disabled = true;
+                btn.className = "py-3 text-gray-300 cursor-not-allowed";
+            } else {
+                btn.onclick = () => {
+                    selectedDate = dateStr;
+                    selectedTime = null;
+                    render();
+                    fetchSlots(dateStr);
+                };
+            }
+            calendarGrid.appendChild(btn);
+        }
+    }
+
+    async function fetchSlots(date) {
+        slotsGrid.innerHTML = '<p class="col-span-3 text-primary animate-pulse">Φόρτωση...</p>';
+        try {
+            const res = await fetch(`/get-availability?date=${date}`);
+            const data = await res.json();
+            const booked = data.bookedTimes || [];
+            
+            slotsGrid.innerHTML = '';
+            AVAILABLE_HOURS.forEach(time => {
+                const isBooked = booked.includes(time);
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.innerText = time;
+                btn.className = `p-3 rounded-lg border-2 font-bold transition-all ${
+                    selectedTime === time ? 'bg-primary border-primary text-white' : 'border-gray-100 hover:border-primary'
+                } ${isBooked ? 'opacity-30 cursor-not-allowed' : ''}`;
+                
+                if (!isBooked) {
+                    btn.onclick = () => {
+                        selectedTime = time;
+                        fetchSlots(date); // Re-render slots
+                    };
+                } else {
+                    btn.disabled = true;
+                }
+                slotsGrid.appendChild(btn);
+            });
+        } catch (e) {
+            slotsGrid.innerHTML = '<p class="col-span-3 text-red-500">Σφάλμα σύνδεσης.</p>';
+        }
+    }
+
+    prevBtn.onclick = () => {
+        viewDate.setMonth(viewDate.getMonth() - 1);
+        render();
+    };
+
+    nextBtn.onclick = () => {
+        viewDate.setMonth(viewDate.getMonth() + 1);
+        render();
+    };
+
+    bookingForm.onsubmit = async (e) => {
+        e.preventDefault();
+        if (!selectedDate || !selectedTime) return alert('Επιλέξτε ημερομηνία και ώρα!');
+
+        const fd = new FormData(bookingForm);
+        const submitBtn = bookingForm.querySelector('button');
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'Υποβολή...';
+
+        try {
+            const res = await fetch('/submit-booking', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: fd.get('name'),
+                    phone: fd.get('phone'),
+                    purpose: fd.get('purpose'),
+                    date: selectedDate,
+                    time: selectedTime
+                })
+            });
+            const data = await res.json();
+            if (data.success) {
+                alert('Επιτυχία! Θα σας καλέσουμε για επιβεβαίωση.');
+                window.location.reload();
+            } else {
+                alert('Σφάλμα: ' + data.error);
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'Επιβεβαίωση Ραντεβού';
+            }
+        } catch (e) {
+            alert('Σφάλμα σύνδεσης.');
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'Επιβεβαίωση Ραντεβού';
+        }
+    };
+
+    // Initial render
+    render();
+</script>
