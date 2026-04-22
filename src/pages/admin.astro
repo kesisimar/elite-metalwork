@@ -3,8 +3,12 @@ import Layout from '../layouts/Layout.astro';
 export const prerender = false;
 
 const runtime = Astro.locals.runtime;
-const DB = runtime?.env?.DB;
-const ADMIN_PASSWORD = runtime?.env?.ADMIN_PASSWORD || 'admin123';
+let DB;
+if (runtime && runtime.env) {
+    DB = runtime.env.DB;
+}
+
+const ADMIN_PASSWORD = (runtime && runtime.env && runtime.env.ADMIN_PASSWORD) || 'admin123';
 
 const url = new URL(Astro.request.url);
 const pass = url.searchParams.get('pass');
@@ -15,13 +19,13 @@ let error = null;
 
 if (authorized) {
     if (!DB) {
-        error = 'Database binding DB not found.';
+        error = 'Database binding "DB" not found in Cloudflare environment.';
     } else {
         try {
-            const { results } = await DB.prepare('SELECT * FROM appointments ORDER BY created_at DESC').all();
-            appointments = results || [];
+            const query = await DB.prepare('SELECT * FROM appointments ORDER BY id DESC').all();
+            appointments = query.results || [];
         } catch (e) {
-            error = e.message;
+            error = 'Database Error: ' + e.message;
         }
     }
 }
