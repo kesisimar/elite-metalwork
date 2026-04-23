@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* Import fonts */
-@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@400..800&family=Inter:wght@400..900&display=swap');
 
 @theme {
   /* Design Tokens from Stitch */
@@ -55,19 +55,23 @@
 
   /* Font Configuration */
   --font-geologica: "Geologica", sans-serif;
-  --font-open-sans: "Open Sans", sans-serif;
+  --font-inter: "Inter", sans-serif;
 }
 
 @utility font-geologica {
   font-family: var(--font-geologica);
 }
 
-@utility font-open-sans {
-  font-family: var(--font-open-sans);
+@utility font-inter {
+  font-family: var(--font-inter);
 }
 
 body {
-  font-family: var(--font-open-sans);
+  font-family: var(--font-inter);
   background-color: var(--color-background);
   color: var(--color-on-background);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-geologica);
 }
