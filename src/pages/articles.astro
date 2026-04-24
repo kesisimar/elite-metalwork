@@ -2,168 +2,80 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Άρθρα - Updated Layout" active="articles">
+<Layout title="Engineering Journal" active="articles">
 
-<main class="pt-32 pb-24 px-8 max-w-7xl mx-auto">
-<!-- Hero Editorial Section -->
-<header class="mb-20 text-center md:text-left max-w-3xl">
-<span class="text-primary font-semibold tracking-widest text-xs uppercase mb-4 block">Editorial Journal</span>
-<h1 class="text-5xl md:text-7xl font-extrabold text-on-surface mb-8 leading-tight">
-            Η Τέχνη της <span class="text-primary-container">Ευεξίας</span>
-</h1>
-<p class="text-on-surface-variant text-xl leading-relaxed">
-            Ανακαλύψτε επιστημονικά τεκμηριωμένες συμβουλές διατροφής, συνταγές και μυστικά για έναν πιο υγιή και ισορροπημένο τρόπο ζωής.
-        </p>
-</header>
-<!-- Featured Bento Grid -->
-<section class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-24">
-<!-- Featured Article -->
-<div class="md:col-span-8 group relative overflow-hidden rounded-xl bg-surface-container-low p-2">
-<div class="relative h-[500px] w-full overflow-hidden rounded-lg">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Modern wooden bowl filled with vibrant fresh salad ingredients, avocado, and seeds on a rustic linen cloth with soft sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMLCxmNSmknn5M0qx9-HZhn3gdYyoNdWiC8uDdVTc8wZktvcLUFWc3Rp-FCKmxpkFTgk-Hl5sJFxRnVQOgaTWAMMtdLOln1K_dbKIQW6cM1hYZCBujIkjf2v3GYE6vbYipcr-WGC8jTnjOUK9fNB3PEFXNKCGPBfa3Xv_tYVJ3cOZfXER5W6-dQtXMwzJ4RjCqZc_t5mWhrzHIQS6BOcw0oK06uRHi834BHwT7AvxjWNKrM-ZRcjdTuv1Iv6qz6xj-RVObbcxE4B8"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-<div class="absolute bottom-0 left-0 p-10 text-white">
-<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold mb-4 inline-block">TRENDING</span>
-<h2 class="text-3xl md:text-4xl font-bold mb-4">Πώς η Μεσογειακή Διατροφή ενισχύει τη μακροζωία</h2>
-<p class="text-emerald-50/80 mb-6 max-w-lg">Μια βαθιά ανάλυση στις διατροφικές συνήθειες των "Μπλε Ζωνών" και πώς να τις εφαρμόσετε σήμερα.</p>
-<a class="inline-flex items-center gap-2 bg-white text-primary px-6 py-3 rounded-xl font-bold hover:bg-emerald-50 transition-colors" href="#">
-                        Διαβάστε Περισσότερα
-                        <span class="material-symbols-outlined">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-<!-- Secondary Featured Stack -->
-<div class="md:col-span-4 flex flex-col gap-8">
-<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-outline-variant/10">
-<span class="text-primary font-bold text-xs mb-2 block">ΔΙΑΤΡΟΦΗ</span>
-<h3 class="text-xl font-bold mb-3 leading-snug">5 Μύθοι για τους υδατάνθρακες που πρέπει να σταματήσετε να πιστεύετε</h3>
-<p class="text-on-surface-variant text-sm mb-4">Γιατί η αποφυγή τους μπορεί να βλάψει τον μεταβολισμό σας.</p>
-<a class="text-primary font-bold text-sm inline-flex items-center gap-1 hover:underline" href="#">
-                    Περισσότερα <span class="material-symbols-outlined text-sm">open_in_new</span>
-</a>
-</div>
-<div class="bg-primary-container p-8 rounded-xl text-on-primary-container flex-grow flex flex-col justify-end">
-<span class="material-symbols-outlined text-4xl mb-4" data-weight="fill">cooking</span>
-<h3 class="text-2xl font-bold mb-4">Εποχιακό Ημερολόγιο: Τι να τρώτε τον Απρίλιο</h3>
-<p class="opacity-90 mb-6">Ο απόλυτος οδηγός για φρέσκα φρούτα και λαχανικά του μήνα.</p>
-<a class="bg-on-primary-container text-white px-5 py-2.5 rounded-xl text-center font-bold text-sm" href="#">Δείτε τον Οδηγό</a>
-</div>
-</div>
-</section>
-<!-- Article Filters -->
-<div class="flex flex-wrap gap-4 mb-12 items-center">
-<span class="text-on-surface-variant font-semibold text-sm">Κατηγορίες:</span>
-<button class="bg-primary text-on-primary px-4 py-2 rounded-full text-sm font-medium">Όλα</button>
-<button class="bg-surface-container-high text-on-surface px-4 py-2 rounded-full text-sm font-medium hover:bg-surface-container-highest transition-colors">Συνταγές</button>
-<button class="bg-surface-container-high text-on-surface px-4 py-2 rounded-full text-sm font-medium hover:bg-surface-container-highest transition-colors">Superfoods</button>
-<button class="bg-surface-container-high text-on-surface px-4 py-2 rounded-full text-sm font-medium hover:bg-surface-container-highest transition-colors">Vegan</button>
-<button class="bg-surface-container-high text-on-surface px-4 py-2 rounded-full text-sm font-medium hover:bg-surface-container-highest transition-colors">Ψυχολογία</button>
-</div>
-<!-- Article List Grid -->
-<section class="grid grid-cols-1 md:grid-cols-3 gap-12">
-<!-- Article 1 -->
-<article class="flex flex-col">
-<div class="relative aspect-video mb-6 overflow-hidden rounded-xl bg-surface-container">
-<img class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" data-alt="Artisanal glass jars of overnight oats topped with fresh berries, almonds, and honey on a bright kitchen counter" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmvc0VXZnKu5EErZo3_apN5lQnMe_7k1t6GL_tMSdM1oH4a61eFziG0MjrM_ZSdga--mJqX9ea_9gGnVUqFXTkc6sQ5-gXbxZe3f6Le6zf9Uf0ozFlthpE2JDye3EfDQ8F3r2SCEe5kO3Igor9wp34xqlE_UTd0HNLm7l_LaJeF_VXcdQVJ-bwVeSobiE89_9pzJXMb40OigumKS61mSPr6DHOw2A8Lsrr-M8s2jwu89N8xmLyJfxhaejoRvxLq3gBbzOxeEsAJWQ"/>
-<span class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Συνταγές</span>
-</div>
-<h3 class="text-2xl font-bold mb-3 leading-tight">Overnight Oats: Το ιδανικό πρωινό για ενέργεια</h3>
-<p class="text-on-surface-variant mb-6 flex-grow leading-relaxed">
-                3 εύκολες συνταγές που προετοιμάζονται από το προηγούμενο βράδυ για να ξεκινήσετε τη μέρα σας σωστά.
-            </p>
-<a class="inline-flex items-center text-primary font-bold hover:gap-3 transition-all" href="#">
-                Διαβάστε Περισσότερα
-                <span class="material-symbols-outlined ml-2 text-lg">arrow_forward</span>
-</a>
-</article>
-<!-- Article 2 -->
-<article class="flex flex-col">
-<div class="relative aspect-video mb-6 overflow-hidden rounded-xl bg-surface-container">
-<img class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" data-alt="Close-up of a colorful Buddha bowl with quinoa, roasted sweet potatoes, kale, and chickpeas in a ceramic bowl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyb3TDD6EpQUrJj4V-nJpAVLlCsywof3tmv3VPCBOWn08FMhUvfCLSpBdrAovJ4LrP7LGPj_X0hiFk0RV2W0ESCITtH_-gacX4u-bdOF57SoX3AQd2pfzu4gJEkGC_zb7eDMGN9NmItLsaweGsypOT83vrqpbtzP_i5rujhV55YmCDXOx1kc4E0m96gT-dzxoBvIfwalAXpoLKSkgCGqrAhqPKdMIuou9KQWeQEV5kX8S0dqAYvkWBA4FSjAsALtJ9X85aEJtD4qU"/>
-<span class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Vegan</span>
-</div>
-<h3 class="text-2xl font-bold mb-3 leading-tight">Η δύναμη της φυτικής πρωτεΐνης</h3>
-<p class="text-on-surface-variant mb-6 flex-grow leading-relaxed">
-                Μάθετε πώς να καλύπτετε τις ανάγκες σας σε πρωτεΐνη ακολουθώντας μια αποκλειστικά χορτοφαγική διατροφή.
-            </p>
-<a class="inline-flex items-center text-primary font-bold hover:gap-3 transition-all" href="#">
-                Διαβάστε Περισσότερα
-                <span class="material-symbols-outlined ml-2 text-lg">arrow_forward</span>
-</a>
-</article>
-<!-- Article 3 -->
-<article class="flex flex-col">
-<div class="relative aspect-video mb-6 overflow-hidden rounded-xl bg-surface-container">
-<img class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" data-alt="A person drinking fresh green cold-pressed juice from a glass bottle in a bright minimalist room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0F_ckH-Zy_l5o7EkT4rEgnF7CPwPbG0qRg5RE7x7wgrqysPkQ6g8eep5toirwUgzMJa9uOB_mJHxDQXn5Inf3mypzB2F04kxVhA_TAoHKzB1yXdR46NnEvIuBQCrJPnkADJciBcRgVOGTJKib9USBE2hB-4KJdORRLU_cm4pS0xZvIbSfc7RjROFHneUuE5eKQjllWY-l5VhoY78RGcNho05jNrpRKPnXO-a8q_so71BiyzawphwO6GirN1z6sDZkpXhj45J5AXs"/>
-<span class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Superfoods</span>
-</div>
-<h3 class="text-2xl font-bold mb-3 leading-tight">Detox: Μύθος ή πραγματικότητα;</h3>
-<p class="text-on-surface-variant mb-6 flex-grow leading-relaxed">
-                Όλη η αλήθεια για τα προγράμματα αποτοξίνωσης και πώς το σώμα μας καθαρίζει φυσικά τον εαυτό του.
-            </p>
-<a class="inline-flex items-center text-primary font-bold hover:gap-3 transition-all" href="#">
-                Διαβάστε Περισσότερα
-                <span class="material-symbols-outlined ml-2 text-lg">arrow_forward</span>
-</a>
-</article>
-<!-- Article 4 -->
-<article class="flex flex-col">
-<div class="relative aspect-video mb-6 overflow-hidden rounded-xl bg-surface-container">
-<img class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" data-alt="Peaceful morning light hitting a yoga mat and a glass of lemon water on a wooden floor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ-mex8_BbpnJPxPjaQrjQqHnPsPNIDOIPoe8Hf_s6tcqMX0-3CYWzP_7y4KF54mbmQdZ8nA3asgNVn2EcgFVsOrtlMAm8CisC7obsT2bz9sOKjSMFHqmLeFBT6SdO9o0vMr1pcqhtibhnoLtjO4bdJ-K2VH6ptnIr0ch0unSaNfF7gBK8oNQVs91oAGEN7uz-eJhWvQmf47GD-qDvvyT-V1yUvPgzThmmCbEBwb1FEIp6B8QOPCZRGbyIEfm-riwvn9rXvUJlQOk"/>
-<span class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Ψυχολογία</span>
-</div>
-<h3 class="text-2xl font-bold mb-3 leading-tight">Ενσυνείδητη Διατροφή (Mindful Eating)</h3>
-<p class="text-on-surface-variant mb-6 flex-grow leading-relaxed">
-                Πώς η προσοχή μας κατά τη διάρκεια του γεύματος μπορεί να αλλάξει τη σχέση μας με το φαγητό.
-            </p>
-<a class="inline-flex items-center text-primary font-bold hover:gap-3 transition-all" href="#">
-                Διαβάστε Περισσότερα
-                <span class="material-symbols-outlined ml-2 text-lg">arrow_forward</span>
-</a>
-</article>
-<!-- Article 5 -->
-<article class="flex flex-col">
-<div class="relative aspect-video mb-6 overflow-hidden rounded-xl bg-surface-container">
-<img class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" data-alt="Flat lay of various spices, turmeric, ginger, and garlic in stone bowls on a dark textured background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzH_02HxBNl2kUzrkVYgUrmMJJYcUh3jgDLBlnX_A8oJvA_snGQVTHfojlX_JQ5e8Et1pSY-sbntYZKK97Wlw7yT1xbe3CUj5mxbklfwEk_iKh13-Wn2yFYuj1GIw4OshVRzbmVGyN7XJScJ9yZHJlV2-B9pzDIA7v77ef_2Jk1EW11NFbERN5BsgBnpxMySnou4f-_utdGam3nSVvsD8NwO-vbbMMLC3-yeyOYrkFVrS8amu8IzSsij92PSz62mkt5ltvVG4L8eo"/>
-<span class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Διατροφή</span>
-</div>
-<h3 class="text-2xl font-bold mb-3 leading-tight">Αντιφλεγμονώδη βότανα της φύσης</h3>
-<p class="text-on-surface-variant mb-6 flex-grow leading-relaxed">
-                Ανακαλύψτε πώς ο κουρκουμάς και το τζίντζερ μπορούν να γίνουν οι σύμμαχοί σας κατά των φλεγμονών.
-            </p>
-<a class="inline-flex items-center text-primary font-bold hover:gap-3 transition-all" href="#">
-                Διαβάστε Περισσότερα
-                <span class="material-symbols-outlined ml-2 text-lg">arrow_forward</span>
-</a>
-</article>
-<!-- Article 6 -->
-<article class="flex flex-col">
-<div class="relative aspect-video mb-6 overflow-hidden rounded-xl bg-surface-container">
-<img class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" data-alt="Close-up of a glass of fresh water with lemon slices and ice on a clean, sunlit surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWaRZKNgCw0U3Ha4cpw9VlnOVCR-rmZv7FMRbpHTCRFQ4mDPPqXTxhwha6v6jq0phPjjatRU-sDp3gCbc4Pn0a4lHG9rH0ZZjaYsWKeWyAtfJjvIMhMUhQwg0tORc1fwJU-Ys0yFtDyCWty3TC4-XFTcK76HWEMuytMFEksNVkx3gmiIAj93xZsh05K5d6Nyfo3l4Mj3Ty4ao7SPFiyEzDS4iH1h9Wc8u5uzl1FFmgI5CIiF7rSAEgVfO3Jbn545s7YttUZSkrP38"/>
-<span class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Ευεξία</span>
-</div>
-<h3 class="text-2xl font-bold mb-3 leading-tight">Η Σημασία της Ενυδάτωσης</h3>
-<p class="text-on-surface-variant mb-6 flex-grow leading-relaxed">
-                Μάθετε γιατί το νερό είναι το πιο σημαντικό θρεπτικό συστατικό και πώς να πετύχετε τους στόχους ενυδάτωσης καθημερινά.
-            </p>
-<a class="inline-flex items-center text-primary font-bold hover:gap-3 transition-all" href="#">
-                Διαβάστε Περισσότερα
-                <span class="material-symbols-outlined ml-2 text-lg">arrow_forward</span>
-</a>
-</article>
-</section>
-<!-- Pagination -->
-<div class="mt-20 flex justify-center items-center gap-4">
-<button class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-high text-on-surface-variant opacity-50 cursor-not-allowed">
-<span class="material-symbols-outlined">chevron_left</span>
-</button>
-<button class="w-12 h-12 flex items-center justify-center rounded-full bg-primary text-on-primary font-bold">1</button>
-<button class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors font-bold">2</button>
-<button class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors font-bold">3</button>
-<button class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors">
-<span class="material-symbols-outlined">chevron_right</span>
-</button>
-</div>
+<main class="pt-32 pb-24 max-w-[1440px] mx-auto px-6 md:px-12">
+  <!-- Header Section -->
+  <header class="mb-24">
+    <div class="flex items-center space-x-4 mb-6">
+      <div class="h-px w-12 bg-primary"></div>
+      <span class="text-primary font-black text-xs uppercase tracking-[0.4em]">Technical Insights</span>
+    </div>
+    <h1 class="text-5xl md:text-7xl font-black italic mb-8">
+      ENGINEERING <span class="text-primary">JOURNAL</span>
+    </h1>
+    <p class="text-xl text-text-muted max-w-2xl leading-relaxed font-medium">
+      Τεχνικά άρθρα, μελέτες περίπτωσης και νέα από τον κόσμο των μεταλλικών κατασκευών και της βιομηχανίας.
+    </p>
+  </header>
+
+  <!-- Featured Article -->
+  <section class="mb-32">
+    <div class="group relative aspect-[21/9] overflow-hidden border border-border/50">
+      <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2070&auto=format&fit=crop" alt="Featured Article" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-60" />
+      <div class="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent"></div>
+      <div class="absolute bottom-0 left-0 p-12 max-w-3xl">
+        <span class="bg-primary text-white px-3 py-1 text-[10px] font-black uppercase tracking-widest mb-6 inline-block">FEATURED</span>
+        <h2 class="text-4xl md:text-6xl font-black italic mb-6 leading-none">Η ΕΞΕΛΙΞΗ ΤΗΣ <br/> ΤΕΧΝΟΛΟΓΙΑΣ ΣΤΙΣ <span class="text-primary">ΣΥΓΚΟΛΛΗΣΕΙΣ</span></h2>
+        <p class="text-text-muted text-lg mb-8 max-w-xl">Πώς οι νέες μέθοδοι TIG και MIG αλλάζουν τα δεδομένα στην αντοχή των κατασκευών.</p>
+        <a href="#" class="inline-block bg-white text-background px-10 py-4 font-black text-xs uppercase tracking-widest hover:bg-primary hover:text-white transition-all">
+          Ανάγνωση Άρθρου
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Article Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+    <!-- Article 1 -->
+    <article class="group">
+      <div class="aspect-video overflow-hidden border border-border/50 mb-8">
+        <img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=2070&auto=format&fit=crop" alt="Article 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80" />
+      </div>
+      <span class="text-primary font-black text-[10px] uppercase tracking-widest mb-4 block">Case Study</span>
+      <h3 class="text-2xl font-black italic mb-4 group-hover:text-primary transition-colors uppercase">Μεταλλικές Στέγες Μεγάλου Ανοίγματος</h3>
+      <p class="text-text-muted text-sm leading-relaxed mb-8">Μια τεχνική ανάλυση για τον σχεδιασμό και την κατασκευή βιομηχανικών στεγών υψηλής αντοχής.</p>
+      <a href="#" class="text-xs font-black uppercase tracking-[0.2em] flex items-center">
+        Read More <span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
+      </a>
+    </article>
+
+    <!-- Article 2 -->
+    <article class="group">
+      <div class="aspect-video overflow-hidden border border-border/50 mb-8">
+        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop" alt="Article 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80" />
+      </div>
+      <span class="text-primary font-black text-[10px] uppercase tracking-widest mb-4 block">Maintenance</span>
+      <h3 class="text-2xl font-black italic mb-4 group-hover:text-primary transition-colors uppercase">Προληπτική Συντήρηση Μηχανημάτων</h3>
+      <p class="text-text-muted text-sm leading-relaxed mb-8">Οδηγός για την παράταση της διάρκειας ζωής του βιομηχανικού εξοπλισμού μέσω σωστής συντήρησης.</p>
+      <a href="#" class="text-xs font-black uppercase tracking-[0.2em] flex items-center">
+        Read More <span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
+      </a>
+    </article>
+
+    <!-- Article 3 -->
+    <article class="group">
+      <div class="aspect-video overflow-hidden border border-border/50 mb-8">
+        <img src="https://images.unsplash.com/photo-1565615833231-e8c91a38a012?q=80&w=2070&auto=format&fit=crop" alt="Article 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80" />
+      </div>
+      <span class="text-primary font-black text-[10px] uppercase tracking-widest mb-4 block">Fabrication</span>
+      <h3 class="text-2xl font-black italic mb-4 group-hover:text-primary transition-colors uppercase">Ειδικά Κράματα στην Αυτοκινητοβιομηχανία</h3>
+      <p class="text-text-muted text-sm leading-relaxed mb-8">Πώς η χρήση ελαφρών αλλά ανθεκτικών μετάλλων βελτιώνει την απόδοση και την ασφάλεια.</p>
+      <a href="#" class="text-xs font-black uppercase tracking-[0.2em] flex items-center">
+        Read More <span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
+      </a>
+    </article>
+  </div>
 </main>
+
 </Layout>
