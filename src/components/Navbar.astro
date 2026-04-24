@@ -10,40 +10,44 @@ const { active } = Astro.props;
 
     <!-- Desktop Navigation -->
     <div class="hidden lg:flex items-center space-x-10">
-      <a class={active === 'index' ? "text-primary font-bold text-xs uppercase tracking-widest" : "text-white/70 hover:text-white transition-colors font-bold text-xs uppercase tracking-widest"} href="/">Αρχική</a>
-      <a class={active === 'services' ? "text-primary font-bold text-xs uppercase tracking-widest" : "text-white/70 hover:text-white transition-colors font-bold text-xs uppercase tracking-widest"} href="/services">Υπηρεσίες</a>
-      <a class={active === 'articles' ? "text-primary font-bold text-xs uppercase tracking-widest" : "text-white/70 hover:text-white transition-colors font-bold text-xs uppercase tracking-widest"} href="/articles">Journal</a>
-      <a class={active === 'contact' ? "text-primary font-bold text-xs uppercase tracking-widest" : "text-white/70 hover:text-white transition-colors font-bold text-xs uppercase tracking-widest"} href="/contact">Επικοινωνία</a>
+      <a class={active === 'index' ? "text-primary font-bold text-xs uppercase tracking-widest transition-colors duration-200" : "text-white/70 hover:text-primary transition-colors duration-200 font-bold text-xs uppercase tracking-widest"} href="/">Αρχική</a>
+      <a class={active === 'services' ? "text-primary font-bold text-xs uppercase tracking-widest transition-colors duration-200" : "text-white/70 hover:text-primary transition-colors duration-200 font-bold text-xs uppercase tracking-widest"} href="/services">Υπηρεσίες</a>
+      <a class={active === 'articles' ? "text-primary font-bold text-xs uppercase tracking-widest transition-colors duration-200" : "text-white/70 hover:text-primary transition-colors duration-200 font-bold text-xs uppercase tracking-widest"} href="/articles">Journal</a>
+      <a class={active === 'contact' ? "text-primary font-bold text-xs uppercase tracking-widest transition-colors duration-200" : "text-white/70 hover:text-primary transition-colors duration-200 font-bold text-xs uppercase tracking-widest"} href="/contact">Επικοινωνία</a>
     </div>
 
     <div class="flex items-center space-x-4 md:space-x-6 relative z-[110]">
-      <a href="tel:+302100000000" class="hidden sm:block text-white/90 font-bold text-sm hover:text-primary transition-colors">+30 210 000 0000</a>
-      <a class="hidden sm:block bg-primary text-white px-8 py-3 rounded-none font-black text-xs uppercase tracking-[0.15em] hover:bg-primary-hover transition-all skew-x-[-12deg] group" href="/contact">
+      <a href="tel:+302100000000" class="hidden sm:block text-white/90 font-bold text-sm hover:text-primary transition-colors duration-200">+30 210 000 0000</a>
+      <a class="hidden sm:block bg-primary text-white px-8 py-3 rounded-none font-black text-xs uppercase tracking-[0.15em] hover:bg-primary-hover transition-all duration-200 skew-x-[-12deg] group" href="/contact">
         <span class="inline-block skew-x-[12deg]">Προσφορά</span>
       </a>
       
-      <!-- Mobile Toggle Button (X / Menu) -->
-      <button id="mobile-menu-btn" class="lg:hidden text-white p-4 flex items-center justify-center hover:text-primary transition-colors">
-        <span id="menu-icon" class="material-symbols-outlined text-3xl">menu</span>
-        <span id="close-icon" class="material-symbols-outlined text-3xl hidden">close</span>
+      <!-- Hamburger Button -->
+      <button id="mobile-menu-btn" class="lg:hidden text-white p-2 flex items-center justify-center hover:text-primary transition-colors duration-200">
+        <span class="material-symbols-outlined text-3xl">menu</span>
       </button>
     </div>
   </div>
 </header>
 
-<!-- Mobile Menu Overlay - POSITIONED BELOW HEADER -->
-<div id="mobile-menu" class="fixed top-20 left-0 right-0 bottom-0 bg-background/98 backdrop-blur-3xl z-[90] translate-x-full transition-transform duration-500 ease-in-out lg:hidden flex flex-col items-center justify-start pt-12 space-y-8 px-6">
-  <a href="/" class="text-2xl font-black italic uppercase text-white hover:text-primary transition-colors border-b border-white/5 w-full text-center pb-6">Αρχική</a>
-  <a href="/services" class="text-2xl font-black italic uppercase text-white hover:text-primary transition-colors border-b border-white/5 w-full text-center pb-6">Υπηρεσίες</a>
-  <a href="/articles" class="text-2xl font-black italic uppercase text-white hover:text-primary transition-colors border-b border-white/5 w-full text-center pb-6">Journal</a>
-  <a href="/contact" class="text-2xl font-black italic uppercase text-white hover:text-primary transition-colors border-b border-white/5 w-full text-center pb-6">Επικοινωνία</a>
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu" class="fixed top-20 left-0 right-0 bottom-0 bg-background/98 backdrop-blur-3xl z-[120] translate-x-full transition-transform duration-500 ease-in-out lg:hidden flex flex-col items-center justify-start pt-20 space-y-8 px-6">
+  <!-- Close Button Inside Menu -->
+  <button id="close-menu-btn" class="absolute top-4 right-4 text-white p-4 flex items-center justify-center hover:text-primary transition-colors duration-200">
+    <span class="material-symbols-outlined text-4xl">close</span>
+  </button>
+
+  <a href="/" class="text-2xl font-black italic uppercase text-white hover:text-primary transition-all duration-200 border-b border-white/5 w-full text-center pb-6">Αρχική</a>
+  <a href="/services" class="text-2xl font-black italic uppercase text-white hover:text-primary transition-all duration-200 border-b border-white/5 w-full text-center pb-6">Υπηρεσίες</a>
+  <a href="/articles" class="text-2xl font-black italic uppercase text-white hover:text-primary transition-all duration-200 border-b border-white/5 w-full text-center pb-6">Journal</a>
+  <a href="/contact" class="text-2xl font-black italic uppercase text-white hover:text-primary transition-all duration-200 border-b border-white/5 w-full text-center pb-6">Επικοινωνία</a>
   
   <div class="pt-10 flex flex-col items-center gap-6">
       <div class="flex flex-col items-center gap-2">
           <span class="text-[10px] font-black uppercase tracking-widest text-white/40">Direct Line</span>
-          <a href="tel:+302100000000" class="text-primary font-black text-2xl tracking-tighter hover:text-white transition-colors">+30 210 000 0000</a>
+          <a href="tel:+302100000000" class="text-primary font-black text-2xl tracking-tighter hover:text-white transition-colors duration-200">+30 210 000 0000</a>
       </div>
-      <a href="/contact" class="bg-primary text-white px-12 py-5 font-black text-xs uppercase tracking-widest skew-x-[-12deg]">
+      <a href="/contact" class="bg-primary text-white px-12 py-5 font-black text-xs uppercase tracking-widest skew-x-[-12deg] hover:bg-primary-hover transition-colors duration-200">
           <span class="inline-block skew-x-[12deg]">Ζητήστε Προσφορά</span>
       </a>
   </div>
@@ -51,38 +55,24 @@ const { active } = Astro.props;
 
 <script>
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-  const menuIcon = document.getElementById('menu-icon');
-  const closeIcon = document.getElementById('close-icon');
+  const closeMenuBtn = document.getElementById('close-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
 
-  let isMenuOpen = false;
-
-  function toggleMenu() {
-    isMenuOpen = !isMenuOpen;
-    
-    if (isMenuOpen) {
-      mobileMenu?.classList.remove('translate-x-full');
-      menuIcon?.classList.add('hidden');
-      closeIcon?.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    } else {
-      mobileMenu?.classList.add('translate-x-full');
-      menuIcon?.classList.remove('hidden');
-      closeIcon?.classList.add('hidden');
-      document.body.style.overflow = '';
-    }
+  function openMenu() {
+    mobileMenu?.classList.remove('translate-x-full');
+    document.body.style.overflow = 'hidden';
   }
 
-  mobileMenuBtn?.addEventListener('click', toggleMenu);
+  function closeMenu() {
+    mobileMenu?.classList.add('translate-x-full');
+    document.body.style.overflow = '';
+  }
+
+  mobileMenuBtn?.addEventListener('click', openMenu);
+  closeMenuBtn?.addEventListener('click', closeMenu);
 
   // Close menu on link click
   mobileMenu?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      isMenuOpen = false;
-      mobileMenu?.classList.add('translate-x-full');
-      menuIcon?.classList.remove('hidden');
-      closeIcon?.classList.add('hidden');
-      document.body.style.overflow = '';
-    });
+    link.addEventListener('click', closeMenu);
   });
 </script>
