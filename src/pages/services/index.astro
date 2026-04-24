@@ -6,27 +6,27 @@ import Layout from '../../layouts/Layout.astro';
 
 <main class="pt-32 pb-24 max-w-[1440px] mx-auto px-6 md:px-12">
   <!-- Header Section -->
-  <header class="mb-24">
+  <header class="mb-16 md:mb-24">
     <div class="flex items-center space-x-4 mb-6">
       <div class="h-px w-12 bg-primary"></div>
-      <span class="text-primary font-black text-xs uppercase tracking-[0.4em]">Expert Solutions</span>
+      <span class="text-primary font-black text-[10px] sm:text-xs uppercase tracking-[0.4em]">Expert Solutions</span>
     </div>
-    <h1 class="text-5xl md:text-7xl font-black italic mb-8">
+    <h1 class="text-4xl sm:text-6xl md:text-7xl font-black italic mb-8 uppercase">
       ΟΙ <span class="text-primary">ΥΠΗΡΕΣΙΕΣ</span> ΜΑΣ
     </h1>
-    <p class="text-xl text-text-muted max-w-2xl leading-relaxed font-medium">
+    <p class="text-lg sm:text-xl text-text-muted max-w-2xl leading-relaxed font-medium">
       Παρέχουμε ολοκληρωμένες τεχνικές λύσεις για τη βιομηχανία και τις κατασκευές, με έμφαση στην ποιότητα και την ασφάλεια.
     </p>
   </header>
 
   <!-- Services Grid -->
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+  <div class="grid grid-cols-1 gap-12">
     <!-- Service 1 -->
-    <div class="group bg-surface p-12 border border-border/50 card-hover">
-      <div class="flex flex-col md:flex-row gap-12">
-        <div class="md:w-1/2">
+    <div class="group bg-surface p-8 md:p-12 border border-border/50 card-hover">
+      <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
+        <div class="lg:w-1/2">
           <span class="text-xs font-black text-primary/40 mb-6 block">SERVICE 01</span>
-          <h2 class="text-3xl font-black mb-6 italic">TIG & MIG<br/><span class="text-primary">WELDING</span></h2>
+          <h2 class="text-2xl sm:text-3xl font-black mb-6 italic uppercase">TIG & MIG<br/><span class="text-primary">WELDING</span></h2>
           <p class="text-text-muted text-sm leading-relaxed mb-8">
             Εξειδικευμένες συγκολλήσεις υψηλής ακρίβειας για κάθε τύπο μετάλλου. Χρησιμοποιούμε τεχνολογία αιχμής για να διασφαλίσουμε την αντοχή και την αισθητική κάθε κόλλησης.
           </p>
@@ -44,19 +44,20 @@ import Layout from '../../layouts/Layout.astro';
               Πιστοποιημένοι Συγκολλητές
             </li>
           </ul>
+          <a href="/services/welding" class="inline-block border border-primary text-primary px-8 py-3 font-black text-xs uppercase tracking-widest hover:bg-primary hover:text-white transition-all">Περισσότερα</a>
         </div>
-        <div class="md:w-1/2 aspect-square overflow-hidden border border-border/50">
+        <div class="lg:w-1/2 aspect-video lg:aspect-square overflow-hidden border border-border/50 order-first lg:order-last">
           <img src="https://images.unsplash.com/photo-1531986346396-672440560981?q=80&w=2070&auto=format&fit=crop" alt="Welding" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80" />
         </div>
       </div>
     </div>
 
     <!-- Service 2 -->
-    <div class="group bg-surface p-12 border border-border/50 card-hover">
-      <div class="flex flex-col md:flex-row gap-12">
-        <div class="md:w-1/2">
+    <div class="group bg-surface p-8 md:p-12 border border-border/50 card-hover">
+      <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
+        <div class="lg:w-1/2">
           <span class="text-xs font-black text-primary/40 mb-6 block">SERVICE 02</span>
-          <h2 class="text-3xl font-black mb-6 italic">ΕΠΙΣΚΕΥΕΣ<br/><span class="text-primary">ΜΗΧΑΝΗΜΑΤΩΝ</span></h2>
+          <h2 class="text-2xl sm:text-3xl font-black mb-6 italic uppercase">ΕΠΙΣΚΕΥΕΣ<br/><span class="text-primary">ΜΗΧΑΝΗΜΑΤΩΝ</span></h2>
           <p class="text-text-muted text-sm leading-relaxed mb-8">
             Συντήρηση και αποκατάσταση βιομηχανικού εξοπλισμού. Διαθέτουμε την τεχνογνωσία για την επισκευή σύνθετων μηχανολογικών συστημάτων.
           </p>
@@ -74,23 +75,24 @@ import Layout from '../../layouts/Layout.astro';
               Τεχνικός Έλεγχος
             </li>
           </ul>
+          <a href="/services/repairs" class="inline-block border border-primary text-primary px-8 py-3 font-black text-xs uppercase tracking-widest hover:bg-primary hover:text-white transition-all">Περισσότερα</a>
         </div>
-        <div class="md:w-1/2 aspect-square overflow-hidden border border-border/50">
+        <div class="lg:w-1/2 aspect-video lg:aspect-square overflow-hidden border border-border/50 order-first lg:order-last">
           <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop" alt="Repairs" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80" />
         </div>
       </div>
     </div>
 
     <!-- Service 3 -->
-    <div class="group bg-surface p-12 border border-border/50 card-hover md:col-span-2">
-      <div class="flex flex-col md:flex-row gap-12">
-        <div class="md:w-1/2">
+    <div class="group bg-surface p-8 md:p-12 border border-border/50 card-hover">
+      <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
+        <div class="lg:w-1/2">
           <span class="text-xs font-black text-primary/40 mb-6 block">SERVICE 03</span>
-          <h2 class="text-4xl font-black mb-6 italic">WELDING &<br/><span class="text-primary">FABRICATIONS</span></h2>
-          <p class="text-text-muted text-lg leading-relaxed mb-8">
+          <h2 class="text-2xl sm:text-3xl font-black mb-6 italic uppercase">WELDING &<br/><span class="text-primary">FABRICATIONS</span></h2>
+          <p class="text-text-muted text-sm leading-relaxed mb-8">
             Μεταλλικές κατασκευές ειδικών προδιαγραφών. Σχεδιάζουμε και κατασκευάζουμε λύσεις που ανταποκρίνονται στις πιο απαιτητικές βιομηχανικές ανάγκες.
           </p>
-          <div class="grid grid-cols-2 gap-8 mb-10">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 mb-10">
             <ul class="space-y-4">
               <li class="flex items-center text-xs font-black uppercase tracking-widest text-white/80">
                 <span class="material-symbols-outlined text-primary mr-3 text-sm">check_circle</span>
@@ -112,8 +114,9 @@ import Layout from '../../layouts/Layout.astro';
               </li>
             </ul>
           </div>
+          <a href="/services/fabrications" class="inline-block border border-primary text-primary px-8 py-3 font-black text-xs uppercase tracking-widest hover:bg-primary hover:text-white transition-all">Περισσότερα</a>
         </div>
-        <div class="md:w-1/2 h-80 overflow-hidden border border-border/50">
+        <div class="lg:w-1/2 aspect-video lg:aspect-square overflow-hidden border border-border/50 order-first lg:order-last">
           <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop" alt="Fabrications" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80" />
         </div>
       </div>

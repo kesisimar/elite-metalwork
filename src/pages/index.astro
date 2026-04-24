@@ -16,20 +16,20 @@ import Layout from '../layouts/Layout.astro';
       <div class="max-w-3xl">
         <div class="flex items-center space-x-4 mb-8">
           <div class="h-px w-12 bg-primary"></div>
-          <span class="text-primary font-black text-xs uppercase tracking-[0.4em]">Precision Engineering</span>
+          <span class="text-primary font-black text-[10px] sm:text-xs uppercase tracking-[0.4em]">Precision Engineering</span>
         </div>
-        <h1 class="text-6xl md:text-8xl font-black leading-[0.9] mb-10 text-white italic">
-          ΜΕΤΑΛΛΙΚΕΣ <br/> <span class="text-primary">ΚΑΤΑΣΚΕΥΕΣ</span>
+        <h1 class="text-4xl sm:text-6xl md:text-8xl font-black leading-[1.1] md:leading-[0.9] mb-10 text-white italic break-words">
+          ΜΕΤΑΛΛΙΚΕΣ <br class="hidden sm:block"/> <span class="text-primary">ΚΑΤΑΣΚΕΥΕΣ</span>
         </h1>
-        <p class="text-xl text-text-muted mb-12 max-w-xl leading-relaxed font-medium">
+        <p class="text-lg sm:text-xl text-text-muted mb-12 max-w-xl leading-relaxed font-medium">
           Κορυφαίες βιομηχανικές λύσεις με έμφαση στην ακρίβεια, την αντοχή και την καινοτομία. Από τον σχεδιασμό έως την υλοποίηση.
         </p>
         <div class="flex flex-col sm:flex-row gap-6">
-          <a href="/quote" class="bg-primary text-white px-10 py-5 font-black text-xs uppercase tracking-[0.2em] hover:bg-primary-hover transition-all skew-x-[-12deg] group">
-            <span class="inline-block skew-x-[12deg]">Ζητήστε Προσφορά</span>
+          <a href="/contact" class="bg-primary text-white px-10 py-5 font-black text-xs uppercase tracking-[0.2em] hover:bg-primary-hover transition-all sm:skew-x-[-12deg] text-center">
+            <span class="inline-block sm:skew-x-[12deg]">Ζητήστε Προσφορά</span>
           </a>
-          <a href="/projects" class="border border-white/20 text-white px-10 py-5 font-black text-xs uppercase tracking-[0.2em] hover:bg-white hover:text-background transition-all skew-x-[-12deg] group">
-            <span class="inline-block skew-x-[12deg]">Δείτε τα έργα μας</span>
+          <a href="/services" class="border border-white/20 text-white px-10 py-5 font-black text-xs uppercase tracking-[0.2em] hover:bg-white hover:text-background transition-all sm:skew-x-[-12deg] text-center">
+            <span class="inline-block sm:skew-x-[12deg]">Υπηρεσίες</span>
           </a>
         </div>
       </div>
@@ -43,26 +43,26 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- Technical Specs Section -->
-  <section class="py-32 bg-surface border-y border-border/50">
+  <section class="py-24 md:py-32 bg-surface border-y border-border/50">
     <div class="max-w-[1440px] mx-auto px-6 md:px-12">
-      <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-12">
         <div class="lg:col-span-1">
-          <h2 class="text-3xl font-black mb-6">TECHNICAL<br/><span class="text-primary">SPECIFICATIONS</span></h2>
+          <h2 class="text-2xl sm:text-3xl font-black mb-6">TECHNICAL<br/><span class="text-primary">SPECIFICATIONS</span></h2>
           <p class="text-text-muted text-sm leading-relaxed">Τεχνικά χαρακτηριστικά και πρότυπα ποιότητας που ακολουθούμε σε κάθε στάδιο παραγωγής.</p>
         </div>
         <div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-8">
           <div class="p-8 border border-border/50 bg-background/50 card-hover">
-            <span class="text-primary text-4xl font-black mb-6 block">01</span>
+            <span class="text-primary text-3xl sm:text-4xl font-black mb-6 block">01</span>
             <h3 class="text-lg font-black mb-4">ISO 9001:2015</h3>
             <p class="text-text-muted text-sm">Πλήρης συμμόρφωση με τα διεθνή πρότυπα διαχείρισης ποιότητας.</p>
           </div>
           <div class="p-8 border border-border/50 bg-background/50 card-hover">
-            <span class="text-primary text-4xl font-black mb-6 block">02</span>
+            <span class="text-primary text-3xl sm:text-4xl font-black mb-6 block">02</span>
             <h3 class="text-lg font-black mb-4">EN 1090-2</h3>
             <p class="text-text-muted text-sm">Πιστοποίηση για την εκτέλεση χαλύβδινων κατασκευών.</p>
           </div>
           <div class="p-8 border border-border/50 bg-background/50 card-hover">
-            <span class="text-primary text-4xl font-black mb-6 block">03</span>
+            <span class="text-primary text-3xl sm:text-4xl font-black mb-6 block">03</span>
             <h3 class="text-lg font-black mb-4">CE MARKING</h3>
             <p class="text-text-muted text-sm">Εγγύηση ασφάλειας και αξιοπιστίας για όλα μας τα προϊόντα.</p>
           </div>
@@ -72,37 +72,37 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- Engineering Process Section -->
-  <section class="py-32 relative overflow-hidden">
-    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
-      <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+  <section class="py-24 md:py-32 relative overflow-hidden px-6 md:px-12">
+    <div class="max-w-[1440px] mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-24 gap-8">
         <div>
           <span class="text-primary font-black text-xs uppercase tracking-[0.4em] mb-4 block">Our Method</span>
-          <h2 class="text-4xl md:text-6xl font-black">ENGINEERING <span class="text-primary">PROCESS</span></h2>
+          <h2 class="text-3xl sm:text-4xl md:text-6xl font-black">ENGINEERING <span class="text-primary">PROCESS</span></h2>
         </div>
         <p class="max-w-md text-text-muted text-sm leading-relaxed">
           Μια ολοκληρωμένη προσέγγιση που διασφαλίζει το βέλτιστο αποτέλεσμα, από την αρχική ιδέα έως την τελική παράδοση.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-px bg-border/30 border border-border/30">
-        <div class="bg-background p-10 group hover:bg-surface transition-colors">
-          <span class="text-xs font-black text-primary/40 group-hover:text-primary transition-colors mb-8 block">STEP 01</span>
-          <h3 class="text-xl font-black mb-6 italic">DESIGN &<br/>ANALYSIS</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border/30 border border-border/30">
+        <div class="bg-background p-8 sm:p-10 group hover:bg-surface transition-colors">
+          <span class="text-xs font-black text-primary/40 group-hover:text-primary transition-colors mb-6 block">STEP 01</span>
+          <h3 class="text-xl font-black mb-4 italic">DESIGN &<br/>ANALYSIS</h3>
           <p class="text-text-muted text-sm leading-relaxed">Μελέτη και σχεδιασμός σε περιβάλλον CAD/CAM για μέγιστη ακρίβεια.</p>
         </div>
-        <div class="bg-background p-10 group hover:bg-surface transition-colors">
-          <span class="text-xs font-black text-primary/40 group-hover:text-primary transition-colors mb-8 block">STEP 02</span>
-          <h3 class="text-xl font-black mb-6 italic">MATERIAL<br/>SELECTION</h3>
+        <div class="bg-background p-8 sm:p-10 group hover:bg-surface transition-colors">
+          <span class="text-xs font-black text-primary/40 group-hover:text-primary transition-colors mb-6 block">STEP 02</span>
+          <h3 class="text-xl font-black mb-4 italic">MATERIAL<br/>SELECTION</h3>
           <p class="text-text-muted text-sm leading-relaxed">Επιλογή κορυφαίων πρώτων υλών με πιστοποιητικά ποιότητας.</p>
         </div>
-        <div class="bg-background p-10 group hover:bg-surface transition-colors">
-          <span class="text-xs font-black text-primary/40 group-hover:text-primary transition-colors mb-8 block">STEP 03</span>
-          <h3 class="text-xl font-black mb-6 italic">FABRICATION<br/>UNITS</h3>
+        <div class="bg-background p-8 sm:p-10 group hover:bg-surface transition-colors">
+          <span class="text-xs font-black text-primary/40 group-hover:text-primary transition-colors mb-6 block">STEP 03</span>
+          <h3 class="text-xl font-black mb-4 italic">FABRICATION<br/>UNITS</h3>
           <p class="text-text-muted text-sm leading-relaxed">Κατασκευή σε σύγχρονες εγκαταστάσεις με εξειδικευμένο προσωπικό.</p>
         </div>
-        <div class="bg-background p-10 group hover:bg-surface transition-colors">
-          <span class="text-xs font-black text-primary/40 group-hover:text-primary transition-colors mb-8 block">STEP 04</span>
-          <h3 class="text-xl font-black mb-6 italic">QUALITY<br/>CONTROL</h3>
+        <div class="bg-background p-8 sm:p-10 group hover:bg-surface transition-colors">
+          <span class="text-xs font-black text-primary/40 group-hover:text-primary transition-colors mb-6 block">STEP 04</span>
+          <h3 class="text-xl font-black mb-4 italic">QUALITY<br/>CONTROL</h3>
           <p class="text-text-muted text-sm leading-relaxed">Αυστηροί έλεγχοι και δοκιμές πριν από την τελική παράδοση.</p>
         </div>
       </div>
@@ -110,45 +110,45 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- Portfolio Section -->
-  <section class="py-32 bg-background">
-    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
-      <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+  <section class="py-24 md:py-32 bg-background px-6 md:px-12">
+    <div class="max-w-[1440px] mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-24 gap-8">
         <div>
           <span class="text-primary font-black text-xs uppercase tracking-[0.4em] mb-4 block">Portfolio</span>
-          <h2 class="text-4xl md:text-6xl font-black">ΤΑ ΕΡΓΑ <span class="text-primary">ΜΑΣ</span></h2>
+          <h2 class="text-3xl sm:text-4xl md:text-6xl font-black">ΤΑ ΕΡΓΑ <span class="text-primary">ΜΑΣ</span></h2>
         </div>
-        <a href="/projects" class="text-xs font-black uppercase tracking-[0.2em] text-white hover:text-primary transition-colors border-b border-primary pb-2">
-          Δείτε όλο το Portfolio
+        <a href="/services" class="text-xs font-black uppercase tracking-[0.2em] text-white hover:text-primary transition-colors border-b border-primary pb-2">
+          Δείτε όλες τις υπηρεσίες
         </a>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
         <div class="group relative aspect-square overflow-hidden border border-border/50">
           <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop" alt="Steel Structure" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-          <div class="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-center items-center p-8 text-center">
-            <h3 class="text-xl font-black mb-4 italic uppercase">Steel Roof Structure</h3>
-            <p class="text-sm text-text-muted">Βιομηχανική στέγη μεγάλης κλίμακας.</p>
+          <div class="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-center items-center p-6 text-center">
+            <h3 class="text-lg font-black mb-4 italic uppercase">Steel Roof Structure</h3>
+            <p class="text-xs text-text-muted">Βιομηχανική στέγη μεγάλης κλίμακας.</p>
           </div>
         </div>
         <div class="group relative aspect-square overflow-hidden border border-border/50">
           <img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=2070&auto=format&fit=crop" alt="Metal Bridge" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-          <div class="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-center items-center p-8 text-center">
-            <h3 class="text-xl font-black mb-4 italic uppercase">Industrial Walkway</h3>
-            <p class="text-sm text-text-muted">Μεταλλική γέφυρα βιομηχανικών εγκαταστάσεων.</p>
+          <div class="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-center items-center p-6 text-center">
+            <h3 class="text-lg font-black mb-4 italic uppercase">Industrial Walkway</h3>
+            <p class="text-xs text-text-muted">Μεταλλική γέφυρα βιομηχανικών εγκαταστάσεων.</p>
           </div>
         </div>
         <div class="group relative aspect-square overflow-hidden border border-border/50">
           <img src="https://images.unsplash.com/photo-1565615833231-e8c91a38a012?q=80&w=2070&auto=format&fit=crop" alt="Factory Interior" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-          <div class="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-center items-center p-8 text-center">
-            <h3 class="text-xl font-black mb-4 italic uppercase">Custom Fabrications</h3>
-            <p class="text-sm text-text-muted">Ειδικές κατασκευές για την αυτοκινητοβιομηχανία.</p>
+          <div class="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-center items-center p-6 text-center">
+            <h3 class="text-lg font-black mb-4 italic uppercase">Custom Fabrications</h3>
+            <p class="text-xs text-text-muted">Ειδικές κατασκευές για την αυτοκινητοβιομηχανία.</p>
           </div>
         </div>
         <div class="group relative aspect-square overflow-hidden border border-border/50">
           <img src="https://images.unsplash.com/photo-1531986346396-672440560981?q=80&w=2070&auto=format&fit=crop" alt="Detailed Weld" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-          <div class="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-center items-center p-8 text-center">
-            <h3 class="text-xl font-black mb-4 italic uppercase">High Precision Welding</h3>
-            <p class="text-sm text-text-muted">TIG Welding σε ανοξείδωτα εξαρτήματα.</p>
+          <div class="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-center items-center p-6 text-center">
+            <h3 class="text-lg font-black mb-4 italic uppercase">High Precision Welding</h3>
+            <p class="text-xs text-text-muted">TIG Welding σε ανοξείδωτα εξαρτήματα.</p>
           </div>
         </div>
       </div>
@@ -156,21 +156,21 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- Services Section -->
-  <section class="py-32 bg-surface">
-    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
-      <div class="text-center mb-24">
-        <h2 class="text-4xl md:text-6xl font-black mb-6 italic">ΟΙ <span class="text-primary">ΥΠΗΡΕΣΙΕΣ</span> ΜΑΣ</h2>
-        <div class="h-1 w-24 bg-primary mx-auto"></div>
+  <section class="py-24 md:py-32 bg-surface px-6 md:px-12">
+    <div class="max-w-[1440px] mx-auto">
+      <div class="text-center mb-16 md:mb-24">
+        <h2 class="text-3xl sm:text-4xl md:text-6xl font-black mb-6 italic">ΟΙ <span class="text-primary">ΥΠΗΡΕΣΙΕΣ</span> ΜΑΣ</h2>
+        <div class="h-1 w-20 sm:w-24 bg-primary mx-auto"></div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
         <!-- Service 1 -->
         <div class="group">
           <div class="relative aspect-[4/5] overflow-hidden mb-8 border border-border/50">
             <img src="https://images.unsplash.com/photo-1531986346396-672440560981?q=80&w=2070&auto=format&fit=crop" alt="Welding Precision" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80" />
             <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
             <div class="absolute bottom-8 left-8">
-              <h3 class="text-2xl font-black text-white italic">TIG & MIG<br/><span class="text-primary">WELDING</span></h3>
+              <h3 class="text-xl sm:text-2xl font-black text-white italic">TIG & MIG<br/><span class="text-primary">WELDING</span></h3>
             </div>
           </div>
           <p class="text-text-muted text-sm leading-relaxed mb-8">Εξειδικευμένες κολλήσεις υψηλής ακρίβειας για ανοξείδωτο χάλυβα, αλουμίνιο και ειδικά κράματα.</p>
@@ -185,7 +185,7 @@ import Layout from '../layouts/Layout.astro';
             <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop" alt="Machine Repair" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80" />
             <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
             <div class="absolute bottom-8 left-8">
-              <h3 class="text-2xl font-black text-white italic">ΕΠΙΣΚΕΥΕΣ<br/><span class="text-primary">ΜΗΧΑΝΗΜΑΤΩΝ</span></h3>
+              <h3 class="text-xl sm:text-2xl font-black text-white italic">ΕΠΙΣΚΕΥΕΣ<br/><span class="text-primary">ΜΗΧΑΝΗΜΑΤΩΝ</span></h3>
             </div>
           </div>
           <p class="text-text-muted text-sm leading-relaxed mb-8">Πλήρης αποκατάσταση και συντήρηση βιομηχανικού εξοπλισμού και μηχανημάτων παραγωγής.</p>
@@ -200,7 +200,7 @@ import Layout from '../layouts/Layout.astro';
             <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop" alt="Welding Finish" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80" />
             <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
             <div class="absolute bottom-8 left-8">
-              <h3 class="text-2xl font-black text-white italic">WELDING &<br/><span class="text-primary">FABRICATIONS</span></h3>
+              <h3 class="text-xl sm:text-2xl font-black text-white italic">WELDING &<br/><span class="text-primary">FABRICATIONS</span></h3>
             </div>
           </div>
           <p class="text-text-muted text-sm leading-relaxed mb-8">Μεταλλικές κατασκευές κατά παραγγελία (custom fabrications) για κάθε βιομηχανική ανάγκη.</p>
@@ -213,30 +213,30 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- Quote CTA Section -->
-  <section class="py-32 relative overflow-hidden bg-[#050505]">
-    <div class="max-w-[1440px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+  <section class="py-24 md:py-32 relative overflow-hidden bg-[#050505] px-6 md:px-12">
+    <div class="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-center">
       <div>
         <span class="text-primary font-black text-xs uppercase tracking-[0.4em] mb-8 block">Contact Us</span>
-        <h2 class="text-5xl md:text-7xl font-black mb-10 leading-none italic text-white">ΖΗΤΗΣΤΕ<br/><span class="text-primary">ΤΕΧΝΙΚΗ</span> ΠΡΟΣΦΟΡΑ</h2>
-        <p class="text-xl text-text-muted mb-12 leading-relaxed">
+        <h2 class="text-4xl sm:text-5xl md:text-7xl font-black mb-8 leading-tight italic text-white uppercase">ΖΗΤΗΣΤΕ<br/><span class="text-primary">ΤΕΧΝΙΚΗ</span> ΠΡΟΣΦΟΡΑ</h2>
+        <p class="text-lg sm:text-xl text-text-muted mb-10 leading-relaxed">
           Είμαστε έτοιμοι να συζητήσουμε το επόμενο έργο σας. Συμπληρώστε τη φόρμα και ένας τεχνικός μας θα επικοινωνήσει μαζί σας.
         </p>
-        <div class="flex items-center space-x-12">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-8 sm:gap-12">
           <div>
             <span class="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 block mb-2">Direct Line</span>
-            <p class="text-2xl font-black text-white">+30 210 000 0000</p>
+            <p class="text-xl sm:text-2xl font-black text-white">+30 210 000 0000</p>
           </div>
           <div>
             <span class="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 block mb-2">Email</span>
-            <p class="text-2xl font-black text-white">info@elite-industrial.gr</p>
+            <p class="text-xl sm:text-2xl font-black text-white">info@elite-industrial.gr</p>
           </div>
         </div>
       </div>
       
-      <div class="bg-surface p-12 border border-border/50 relative">
-        <div class="absolute -top-6 -right-6 w-24 h-24 border-t-4 border-r-4 border-primary"></div>
-        <form class="space-y-8">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bg-surface p-8 sm:p-12 border border-border/50 relative">
+        <div class="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 w-16 h-16 sm:w-24 sm:h-24 border-t-4 border-r-4 border-primary"></div>
+        <form class="space-y-6 sm:space-y-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             <div class="space-y-2">
               <label class="text-[10px] font-black uppercase tracking-[0.2em] text-white/60">Ονοματεπώνυμο</label>
               <input type="text" class="w-full bg-background border border-border/50 px-4 py-4 text-white focus:border-primary outline-none transition-colors" />
@@ -258,7 +258,7 @@ import Layout from '../layouts/Layout.astro';
             <label class="text-[10px] font-black uppercase tracking-[0.2em] text-white/60">Μήνυμα</label>
             <textarea rows="4" class="w-full bg-background border border-border/50 px-4 py-4 text-white focus:border-primary outline-none transition-colors"></textarea>
           </div>
-          <button class="w-full bg-primary text-white py-6 font-black text-xs uppercase tracking-[0.2em] hover:bg-primary-hover transition-all">
+          <button class="w-full bg-primary text-white py-5 sm:py-6 font-black text-xs uppercase tracking-[0.2em] hover:bg-primary-hover transition-all">
             Αποστολή Αιτήματος
           </button>
         </form>
