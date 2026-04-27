@@ -5,14 +5,15 @@ const { active } = Astro.props;
   <div class="flex justify-between items-center px-6 md:px-12 h-full w-full max-w-[1440px] mx-auto">
     <a href="/" class="flex flex-col group relative z-[110]">
       <span class="text-xl md:text-2xl font-black tracking-tighter text-white uppercase leading-none group-hover:text-primary transition-colors italic">Elite Industrial</span>
-      <span class="text-[10px] md:text-xs font-bold tracking-[0.3em] text-primary uppercase leading-none mt-1">Metalwork</span>
+      <span class="text-[10px] md:text-xs font-bold tracking-[0.3em] text-primary uppercase leading-none mt-1">ΜΕΤΑΛΛΙΚΕΣ ΚΑΤΑΣΚΕΥΕΣ</span>
     </a>
+
 
     <!-- Desktop Navigation -->
     <div class="hidden lg:flex items-center space-x-10">
       <a class={active === 'index' ? "text-primary font-bold text-xs uppercase tracking-widest transition-colors duration-200" : "text-white/70 hover:text-primary transition-colors duration-200 font-bold text-xs uppercase tracking-widest"} href="/">Αρχική</a>
       <a class={active === 'services' ? "text-primary font-bold text-xs uppercase tracking-widest transition-colors duration-200" : "text-white/70 hover:text-primary transition-colors duration-200 font-bold text-xs uppercase tracking-widest"} href="/services">Υπηρεσίες</a>
-      <a class={active === 'articles' ? "text-primary font-bold text-xs uppercase tracking-widest transition-colors duration-200" : "text-white/70 hover:text-primary transition-colors duration-200 font-bold text-xs uppercase tracking-widest"} href="/articles">Journal</a>
+      <a class={active === 'articles' ? "text-primary font-bold text-xs uppercase tracking-widest transition-colors duration-200" : "text-white/70 hover:text-primary transition-colors duration-200 font-bold text-xs uppercase tracking-widest"} href="/articles">Άρθρα</a>
       <a class={active === 'contact' ? "text-primary font-bold text-xs uppercase tracking-widest transition-colors duration-200" : "text-white/70 hover:text-primary transition-colors duration-200 font-bold text-xs uppercase tracking-widest"} href="/contact">Επικοινωνία</a>
     </div>
 
@@ -37,14 +38,14 @@ const { active } = Astro.props;
     <span class="material-symbols-outlined text-4xl">close</span>
   </button>
 
-  <a href="/" class="text-2xl font-black italic uppercase text-white hover:text-primary transition-all duration-200 border-b border-white/5 w-full text-center pb-6">Αρχική</a>
-  <a href="/services" class="text-2xl font-black italic uppercase text-white hover:text-primary transition-all duration-200 border-b border-white/5 w-full text-center pb-6">Υπηρεσίες</a>
-  <a href="/articles" class="text-2xl font-black italic uppercase text-white hover:text-primary transition-all duration-200 border-b border-white/5 w-full text-center pb-6">Journal</a>
-  <a href="/contact" class="text-2xl font-black italic uppercase text-white hover:text-primary transition-all duration-200 border-b border-white/5 w-full text-center pb-6">Επικοινωνία</a>
+  <a href="/" class={active === 'index' ? "mobile-nav-link text-2xl font-black italic uppercase text-primary transition-all duration-200 border-b border-white/5 w-full text-center pb-6" : "mobile-nav-link text-2xl font-black italic uppercase text-white hover:text-primary transition-all duration-200 border-b border-white/5 w-full text-center pb-6"}>Αρχική</a>
+  <a href="/services" class={active === 'services' ? "mobile-nav-link text-2xl font-black italic uppercase text-primary transition-all duration-200 border-b border-white/5 w-full text-center pb-6" : "mobile-nav-link text-2xl font-black italic uppercase text-white hover:text-primary transition-all duration-200 border-b border-white/5 w-full text-center pb-6"}>Υπηρεσίες</a>
+  <a href="/articles" class={active === 'articles' ? "mobile-nav-link text-2xl font-black italic uppercase text-primary transition-all duration-200 border-b border-white/5 w-full text-center pb-6" : "mobile-nav-link text-2xl font-black italic uppercase text-white hover:text-primary transition-all duration-200 border-b border-white/5 w-full text-center pb-6"}>Άρθρα</a>
+  <a href="/contact" class={active === 'contact' ? "mobile-nav-link text-2xl font-black italic uppercase text-primary transition-all duration-200 border-b border-white/5 w-full text-center pb-6" : "mobile-nav-link text-2xl font-black italic uppercase text-white hover:text-primary transition-all duration-200 border-b border-white/5 w-full text-center pb-6"}>Επικοινωνία</a>
   
   <div class="pt-10 flex flex-col items-center gap-6">
       <div class="flex flex-col items-center gap-2">
-          <span class="text-[10px] font-black uppercase tracking-widest text-white/40">Direct Line</span>
+          <span class="text-[10px] font-black uppercase tracking-widest text-white/40">ΓΡΑΜΜΗ ΕΠΙΚΟΙΝΩΝΙΑΣ</span>
           <a href="tel:+302100000000" class="text-primary font-black text-2xl tracking-tighter hover:text-white transition-colors duration-200">+30 210 000 0000</a>
       </div>
       <a href="/contact" class="bg-primary text-white px-12 py-5 font-black text-xs uppercase tracking-widest skew-x-[-12deg] hover:bg-primary-hover transition-colors duration-200">
